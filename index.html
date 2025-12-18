@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <title>EarthWatch Consulting</title>
+    <link rel="stylesheet" href="./style.css">
+
+  </head>
+    
+  <body>
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EarthWatch Consulting | Environmental & Geospatial Solutions</title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --forest-green: #1a3c34; 
+            --gold: #c5a059;         
+            --soft-ivory: #fdfcf8;   
+            --white: #ffffff;
+            --text-main: #2c3e50;
+            --shadow: 0 20px 40px rgba(0,0,0,0.05);
+            --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.6;
+            color: var(--text-main);
+            background-color: var(--soft-ivory);
+            scroll-behavior: smooth;
+        }
+
+        /* NAVIGATION */
+        nav {
+            background: var(--forest-green);
+            padding: 0.7rem 2%; 
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+        }
+
+        .logo img {
+            height: 70px;
+            width: auto;
+            display: block;
+        }
+
+        .nav-links a {
+            color: var(--white);
+            text-decoration: none;
+            margin-left: 30px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover { color: var(--gold); }
+
+        /* HERO SECTION */
+        .hero {
+            background: linear-gradient(rgba(26, 60, 52, 0.85), rgba(26, 60, 52, 0.75)), 
+                        url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 75vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: var(--white);
+            padding: 0 15%;
+        }
+
+        .hero h1 { font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 800; line-height: 1.1; margin-bottom: 20px; }
+        .hero p { font-size: 1.2rem; max-width: 700px; margin-bottom: 30px; opacity: 0.9; }
+
+        .btn-hero {
+            background: var(--gold);
+            color: var(--forest-green);
+            padding: 18px 40px;
+            text-decoration: none;
+            font-weight: 700;
+            border-radius: 8px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: var(--transition);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        .btn-hero:hover { transform: translateY(-3px); background: #d4b477; box-shadow: 0 15px 30px rgba(0,0,0,0.2); }
+
+        /* SECTION STYLING */
+        .section-padding { padding: 100px 10%; }
+        .section-title { 
+            text-align: center; 
+            color: var(--forest-green); 
+            font-size: 2.8rem; 
+            margin-bottom: 50px;
+            font-weight: 800;
+        }
+
+        /* ABOUT SECTION REFINEMENT */
+        .overview-statement {
+            max-width: 900px;
+            margin: 0 auto 60px auto;
+            text-align: center;
+            position: relative;
+            padding: 40px;
+            background: var(--white);
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+        }
+
+        .overview-statement p {
+            font-size: 1.3rem;
+            color: var(--forest-green);
+            font-weight: 500;
+            line-height: 1.8;
+            font-style: italic;
+        }
+
+        /* GRIDS */
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .card {
+            background: var(--white);
+            padding: 45px 35px;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+            border: 1px solid rgba(0,0,0,0.03);
+            transition: var(--transition);
+            text-align: center;
+        }
+
+        .card:hover { transform: translateY(-10px); border-top: 4px solid var(--gold); }
+
+        .card i { font-size: 2.5rem; color: var(--gold); margin-bottom: 20px; display: block; }
+        .card h3 { color: var(--forest-green); margin-bottom: 15px; font-size: 1.5rem; }
+
+        /* PORTFOLIO */
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+        }
+
+        .portfolio-card {
+            background: var(--white);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .img-container { 
+            position: relative; 
+            background: #fdfdfd; 
+            overflow: hidden;
+            padding: 10px; 
+            border-bottom: 1px solid #eee;
+        }
+
+        .portfolio-card img {
+            width: 100%;
+            height: 300px; 
+            object-fit: contain; 
+            display: block;
+            cursor: zoom-in;
+            transition: transform 0.6s ease;
+        }
+
+        .portfolio-card:hover img { transform: scale(1.05); }
+
+        .portfolio-content { padding: 25px; background: white; flex-grow: 1; }
+        .tag { font-size: 0.7rem; font-weight: 800; color: var(--gold); text-transform: uppercase; letter-spacing: 1.5px; }
+        .portfolio-content h3 { margin: 8px 0; color: var(--forest-green); }
+
+        /* CONTACT SECTION */
+        .contact-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: var(--white);
+            padding: 60px;
+            border-radius: 24px;
+            box-shadow: var(--shadow);
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 60px;
+        }
+
+        .contact-info h3 { font-size: 2rem; color: var(--forest-green); margin-bottom: 25px; }
+        .contact-item { display: flex; align-items: center; gap: 15px; margin-bottom: 25px; }
+        .contact-item i { 
+            color: var(--white); 
+            background: var(--gold); 
+            padding: 12px; 
+            border-radius: 50%; 
+            font-size: 1rem;
+            width: 40px;
+            text-align: center;
+        }
+
+        .contact-form { display: flex; flex-direction: column; gap: 20px; }
+        input, select, textarea {
+            width: 100%;
+            padding: 16px;
+            border: 1.5px solid #edf2f7;
+            border-radius: 12px;
+            background: #f8fafc;
+            font-family: inherit;
+        }
+
+        .btn-submit {
+            background: var(--forest-green);
+            color: var(--white);
+            padding: 18px;
+            border: none;
+            border-radius: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .btn-submit:hover { background: var(--gold); transform: translateY(-2px); }
+
+        /* MODAL */
+        .modal {
+            display: none; position: fixed; z-index: 2000;
+            padding: 50px; left: 0; top: 0; width: 100%; height: 100%;
+            background: rgba(10, 26, 22, 0.98); cursor: zoom-out;
+        }
+        .modal-content { margin: auto; display: block; max-width: 95%; max-height: 85vh; object-fit: contain; }
+
+        footer { background: #0a1a16; color: rgba(255,255,255,0.5); padding: 60px; text-align: center; }
+
+        @media (max-width: 850px) {
+            .contact-container { grid-template-columns: 1fr; padding: 40px 20px; }
+            .section-padding { padding: 80px 5%; }
+            nav { flex-direction: column; padding: 15px; }
+            .nav-links { margin-top: 15px; }
+            .nav-links a { margin: 0 10px; font-size: 0.75rem; }
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <div class="logo">
+        <img src="https://i.postimg.cc/B6fp7qSG/Earth-Watch-logo.png" alt="EarthWatch Logo">
+    </div>
+    <div class="nav-links">
+        <a href="#">Home</a>
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#portfolio">Portfolio</a>
+        <a href="#contact">Contact</a>
+    </div>
+</nav>
+
+<header class="hero">
+    <h1>Precision Mapping,<br>Sustainable Progress.</h1>
+    <p>Providing high-fidelity geospatial intelligence and science-based environmental solutions for global development.</p>
+    <a href="#contact" class="btn-hero">Get Started</a>
+</header>
+
+<section id="about" class="section-padding">
+    <h2 class="section-title">Corporate Profile</h2>
+    <div class="overview-statement">
+        <p>
+            "EarthWatch Consulting Firm is an environmental and geospatial consulting company supporting sustainable development through science-based, regulatory-compliant solutions."
+        </p>
+    </div>
+    <div class="grid-container">
+        <div class="card">
+            <i class="fas fa-microscope"></i>
+            <h3>Our Approach</h3>
+            <p>We leverage cutting-edge geospatial technology and data-driven analysis to deliver insights tailored to strict regulatory standards.</p>
+        </div>
+        <div class="card">
+            <i class="fas fa-shield-alt"></i>
+            <h3>Our Commitment</h3>
+            <p>Quality and integrity guide our mission to promote long-term environmental protection and sustainable infrastructure growth.</p>
+        </div>
+    </div>
+</section>
+
+<section id="services" class="section-padding" style="background: rgba(26, 60, 52, 0.03);">
+    <h2 class="section-title">Our Expertise</h2>
+    <div class="grid-container">
+        <div class="card"><i class="fas fa-map-marked-alt"></i><h3>GIS & Remote Sensing</h3><p>Advanced spatial modeling, satellite imagery analysis, and land use mapping.</p></div>
+        <div class="card"><i class="fas fa-file-contract"></i><h3>ESIA & Audits</h3><p>Comprehensive environmental and social impact assessments for compliance.</p></div>
+        <div class="card"><i class="fas fa-water"></i><h3>Climate Risk</h3><p>Predictive flood modeling and disaster mitigation strategies for urban planning.</p></div>
+    </div>
+</section>
+
+<section id="portfolio" class="section-padding">
+    <h2 class="section-title">Technical Deliverables</h2>
+    <div class="portfolio-grid">
+        <div class="portfolio-card">
+            <div class="img-container">
+                <img src="https://i.postimg.cc/7YqPzc2S/airports-map.png" alt="Infrastructure" onclick="openModal(this.src)">
+            </div>
+            <div class="portfolio-content">
+                <span class="tag">Infrastructure</span>
+                <h3>Aviation Connectivity</h3>
+                <p>Spatial distribution and network analysis for regional aviation hubs.</p>
+            </div>
+        </div>
+        <div class="portfolio-card">
+            <div class="img-container">
+                <img src="https://i.postimg.cc/9MCvD3Dn/Kenya-geology-map.png" alt="Geology" onclick="openModal(this.src)">
+            </div>
+            <div class="portfolio-content">
+                <span class="tag">Geology</span>
+                <h3>Lithological Survey</h3>
+                <p>High-resolution mapping of tectonic structures and geological formations.</p>
+            </div>
+        </div>
+        <div class="portfolio-card">
+            <div class="img-container">
+                <img src="https://i.postimg.cc/zf98b0sT/Solar-Panels-Suitability-Mapping.png" alt="Energy" onclick="openModal(this.src)">
+            </div>
+            <div class="portfolio-content">
+                <span class="tag">Renewables</span>
+                <h3>Solar Farm Suitability</h3>
+                <p>Multi-Criteria Decision Analysis (MCDA) for renewable energy site selection.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="contact" class="section-padding" style="background: rgba(26, 60, 52, 0.03);">
+    <h2 class="section-title">Engage Our Experts</h2>
+    <div class="contact-container">
+        <div class="contact-info">
+            <h3>Direct Contact</h3>
+            <div class="contact-item">
+                <i class="fas fa-phone-alt"></i>
+                <div>
+                    <p style="font-size: 0.8rem; opacity: 0.7;">Phone</p>
+                    <strong>+254 703 860 225</strong>
+                </div>
+            </div>
+            <div class="contact-item">
+                <i class="fas fa-envelope"></i>
+                <div>
+                    <p style="font-size: 0.8rem; opacity: 0.7;">Email</p>
+                    <strong>joseph.mwikwabe48@gmail.com</strong>
+                </div>
+            </div>
+            <p style="margin-top:20px; font-size:0.9rem; opacity:0.8; line-height: 1.5;">Our technical consultants are available for complex spatial analysis projects and environmental compliance auditing across the region.</p>
+        </div>
+        
+        <form id="google-form" class="contact-form">
+            <input type="text" name="Name" placeholder="Full Name" required>
+            <input type="email" name="Email" placeholder="Professional Email" required>
+            <select name="Service" required>
+                <option value="" disabled selected>Select Engagement Area</option>
+                <option>GIS Mapping & Spatial Analysis</option>
+                <option>Environmental Assessment (ESIA)</option>
+                <option>Climate Risk & Flood Modeling</option>
+            </select>
+            <textarea name="Message" rows="4" placeholder="Brief project summary and requirements..." required></textarea>
+            <button type="submit" id="submit-btn" class="btn-submit">Submit Inquiry</button>
+        </form>
+        <div id="success-msg" style="display:none; padding: 20px; background: #e8f5e9; color: #2e7d32; border-radius: 12px; text-align: center;">
+            Thank you! Your inquiry has been sent to our team.
+        </div>
+    </div>
+</section>
+
+<div id="myModal" class="modal" onclick="this.style.display='none'">
+    <img class="modal-content" id="img01">
+</div>
+
+<footer>
+    <p>&copy; 2025 EarthWatch Consulting. Guardians of the Earth, Pioneers of Progress.</p>
+</footer>
+
+<script>
+    function openModal(src) {
+        var modal = document.getElementById("myModal");
+        var modalImg = document.getElementById("img01");
+        modal.style.display = "block";
+        modalImg.src = src;
+    }
+
+    // FORM SUBMISSION SCRIPT
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbw6CiTCGt_FlpJrkN5uxHpcgiRJ0NgN5SoHTvg5dCvpmo4xxaZ5RtCXyziv5z38Z26H/exec';
+    const form = document.getElementById('google-form');
+    const btn = document.getElementById('submit-btn');
+    const successMsg = document.getElementById('success-msg');
+
+    form.addEventListener('submit', e => {
+        e.preventDefault();
+        btn.disabled = true;
+        btn.innerHTML = "Sending...";
+        fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+            .then(response => {
+                form.style.display = 'none';
+                successMsg.style.display = 'block';
+            })
+            .catch(error => {
+                alert('Error!', error.message);
+                btn.disabled = false;
+                btn.innerHTML = "Submit Inquiry";
+            });
+    });
+</script>
+
+</body>
+</html>
+    <script  src="./script.js"></script>
+
+  </body>
+  
+</html>

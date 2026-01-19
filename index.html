@@ -23,30 +23,106 @@
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; scroll-behavior: smooth; }
-        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: var(--soft-ivory); color: var(--text-main); line-height: 1.6; }
-        .container { max-width: var(--container-width); margin: 0 auto; padding: 0 1.5rem; }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--soft-ivory);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
 
         /* --- NAVIGATION --- */
-        nav { background: rgba(10, 26, 22, 0.95); backdrop-filter: blur(15px); padding: 0.6rem 0; position: sticky; top: 0; z-index: 1000; border-bottom: 1px solid rgba(255,255,255,0.1); }
-        nav .container { display: flex; justify-content: space-between; align-items: center; }
-        .logo-container { display: flex; align-items: center; gap: 15px; text-decoration: none; }
-        .logo-container img { height: 65px; width: auto; }
-        .brand-name { font-size: 1.6rem; font-weight: 800; background: var(--gold-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        nav {
+            background: rgba(10, 26, 22, 0.95);
+            backdrop-filter: blur(15px);
+            padding: 0.6rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
 
-        .nav-links a { color: var(--white); text-decoration: none; margin-left: 2rem; font-weight: 600; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; opacity: 0.7; transition: var(--transition); }
+        nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            text-decoration: none;
+        }
+
+        .logo-container img {
+            height: 65px;
+            width: auto;
+        }
+
+        .brand-name {
+            font-size: 1.6rem;
+            font-weight: 800;
+            background: var(--gold-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .nav-links a {
+            color: var(--white);
+            text-decoration: none;
+            margin-left: 2rem;
+            font-weight: 600;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            opacity: 0.7;
+            transition: var(--transition);
+        }
+
         .nav-links a:hover { opacity: 1; color: var(--gold); }
 
         /* --- HERO --- */
-        .hero { background: var(--forest-green); color: var(--white); padding: 80px 0; border-bottom: 4px solid var(--gold); }
-        .hero .container { display: grid; grid-template-columns: 1.2fr 1fr; align-items: center; gap: 40px; }
-        .hero-text h1 { font-size: clamp(2.2rem, 4vw, 3rem); line-height: 1.2; margin-bottom: 1rem; }
-        .hero-text p { font-size: 1rem; color: #9ca3af; margin-bottom: 2rem; max-width: 500px; }
+        .hero {
+            background: var(--forest-green);
+            color: var(--white);
+            padding: 80px 0;
+            border-bottom: 4px solid var(--gold);
+        }
+
+        .hero .container {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            align-items: center;
+            gap: 40px;
+        }
+
+        .hero-text h1 {
+            font-size: clamp(2.2rem, 4vw, 3rem);
+            line-height: 1.2;
+            margin-bottom: 1rem;
+        }
+
+        .hero-text p {
+            font-size: 1rem;
+            color: #9ca3af;
+            margin-bottom: 2rem;
+            max-width: 500px;
+        }
 
         .hero-img-blob {
-            width: 100%; height: 350px; 
+            width: 100%;
+            height: 350px;
             border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
             background: url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=800&q=80');
-            background-size: cover; background-position: center;
+            background-size: cover;
+            background-position: center;
             animation: morphing 8s infinite alternate ease-in-out;
             box-shadow: 0 0 30px rgba(197, 160, 89, 0.2);
         }
@@ -61,26 +137,96 @@
         .section-header { margin-bottom: 40px; }
         .section-title { font-size: 2rem; font-weight: 800; color: var(--forest-green); }
 
-        .service-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
-        .service-card { background: var(--white); padding: 30px; border-radius: 16px; border: 1px solid rgba(0,0,0,0.05); transition: var(--transition); }
-        .service-card:hover { transform: translateY(-5px); border-color: var(--gold); box-shadow: 0 10px 20px rgba(0,0,0,0.05); }
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .service-card {
+            background: var(--white);
+            padding: 30px;
+            border-radius: 16px;
+            border: 1px solid rgba(0,0,0,0.05);
+            transition: var(--transition);
+        }
+
+        .service-card:hover { transform: translateY(-5px); border-color: var(--gold); }
         .service-card i { font-size: 1.8rem; margin-bottom: 15px; color: var(--gold); }
 
-        /* --- CONTACT & MAP --- */
-        .contact-wrap { background: var(--forest-green); border-radius: 20px; display: grid; grid-template-columns: 1fr 1.2fr; overflow: hidden; }
+        /* --- CONTACT & FIXED MAP --- */
+        .contact-wrap {
+            background: var(--forest-green);
+            border-radius: 20px;
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            overflow: hidden;
+        }
+
         .contact-content { padding: 50px; color: white; }
-        .map-container { margin-top: 20px; border-radius: 12px; overflow: hidden; height: 250px; border: 1px solid rgba(255,255,255,0.1); }
-        .contact-form { background: rgba(255,255,255,0.03); padding: 50px; }
         
-        input, select, textarea { background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.1); padding: 0.8rem; color: white; border-radius: 8px; margin-bottom: 1rem; width: 100%; font-size: 0.9rem; }
-        .btn-submit { background: var(--gold-gradient); border: none; padding: 1rem; width: 100%; border-radius: 8px; font-weight: 800; color: var(--forest-green); cursor: pointer; }
+        .map-container {
+            margin-top: 20px;
+            border-radius: 12px;
+            overflow: hidden;
+            height: 250px;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
 
-        /* --- FLOATING ELEMENTS --- */
-        .whatsapp-float { position: fixed; bottom: 30px; right: 30px; background: #25d366; color: white; padding: 12px 20px; border-radius: 50px; display: flex; align-items: center; gap: 10px; text-decoration: none; font-weight: 700; font-size: 0.85rem; box-shadow: 0 10px 25px rgba(37, 211, 102, 0.3); z-index: 2000; }
+        .contact-form { background: rgba(255,255,255,0.03); padding: 50px; }
 
+        input, select, textarea {
+            background: rgba(255,255,255,0.08);
+            border: 1px solid rgba(255,255,255,0.1);
+            padding: 0.8rem;
+            color: white;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            width: 100%;
+            font-size: 0.9rem;
+        }
+
+        .btn-submit {
+            background: var(--gold-gradient);
+            border: none;
+            padding: 1rem;
+            width: 100%;
+            border-radius: 8px;
+            font-weight: 800;
+            color: var(--forest-green);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .btn-submit:hover { filter: brightness(1.1); transform: scale(1.02); }
+
+        /* --- WHATSAPP FLOAT --- */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #25d366;
+            color: white;
+            padding: 12px 20px;
+            border-radius: 50px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.85rem;
+            box-shadow: 0 10px 25px rgba(37, 211, 102, 0.3);
+            z-index: 2000;
+            transition: var(--transition);
+        }
+
+        .whatsapp-float:hover { transform: scale(1.05); }
+
+        /* --- RESPONSIVE --- */
         @media (max-width: 900px) {
             .hero .container, .service-grid, .contact-wrap { grid-template-columns: 1fr; }
             .nav-links { display: none; }
+            .hero-img-blob { height: 300px; }
         }
     </style>
 </head>
@@ -108,8 +254,8 @@
     <div class="container">
         <div class="hero-text">
             <h1>EarthWatch Consulting</h1>
-            <p>Advancing sustainable infrastructure through high-fidelity geospatial data and strategic environmental risk analysis.</p>
-            <a href="#contact" style="background: var(--gold-gradient); padding: 0.8rem 1.8rem; border-radius: 50px; text-decoration: none; color: #000; font-weight: 800; font-size: 0.85rem; display: inline-block;">Get a Quote</a>
+            <p>Providing precision geospatial intelligence and environmental consulting to guide sustainable infrastructure development.</p>
+            <a href="#contact" style="background: var(--gold-gradient); padding: 0.8rem 1.8rem; border-radius: 50px; text-decoration: none; color: #000; font-weight: 800; font-size: 0.85rem; display: inline-block;">Get Started</a>
         </div>
         <div class="hero-visual">
             <div class="hero-img-blob"></div>
@@ -117,12 +263,38 @@
     </div>
 </header>
 
+<section id="services" class="section-padding">
+    <div class="container">
+        <div class="section-header">
+            <h2 class="section-title">Professional Services</h2>
+            <div style="width: 50px; height: 3px; background: var(--gold); margin-top: 10px;"></div>
+        </div>
+        <div class="service-grid">
+            <div class="service-card">
+                <i class="fas fa-map-marked-alt"></i>
+                <h3>GIS Analysis</h3>
+                <p>Advanced mapping and spatial data processing for land-use planning.</p>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-microscope"></i>
+                <h3>ESIA Audits</h3>
+                <p>Environmental and Social Impact Assessments for global compliance.</p>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-cloud-showers-heavy"></i>
+                <h3>Flood Risk</h3>
+                <p>Hydrological modeling to predict and mitigate climate-related hazards.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
 <section id="contact" class="section-padding">
     <div class="container">
         <div class="contact-wrap">
             <div class="contact-content">
                 <h2 style="font-size: 1.8rem; margin-bottom: 1rem;">EarthWatch Consulting HQ</h2>
-                <p style="opacity: 0.7; margin-bottom: 2rem; font-size: 0.9rem;">Visit our consultants for technical project scoping.</p>
+                <p style="opacity: 0.7; margin-bottom: 2rem; font-size: 0.9rem;">Our technical team is available for in-person project scoping.</p>
                 
                 <div style="margin-bottom: 1rem;">
                     <strong style="font-size: 0.75rem; color: var(--gold); letter-spacing: 1px;">LOCATE US</strong><br>
@@ -131,7 +303,7 @@
 
                 <div class="map-container">
                     <iframe 
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m13!1d3988.817345868297!2d36.8219!3d-1.2921!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f10d5ecf71e51%3A0x7d287034c4f90a9!2sNairobi!5e0!3m2!1sen!2ske!4v1700000000000!5m2!1sen!2ske" 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d127641.16431945524!2d36.76450414435649!3d-1.303194090124976!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f1172d84d49a7%3A0xf7cf0254b297924c!2sNairobi%2C%20Kenya!5e0!3m2!1sen!2ske!4v1700000000000!5m2!1sen!2ske" 
                         width="100%" height="100%" style="border:0; filter: grayscale(1) invert(0.92) contrast(1.2);" allowfullscreen="" loading="lazy">
                     </iframe>
                 </div>
@@ -141,7 +313,7 @@
                 <form id="google-form">
                     <input type="text" name="Name" placeholder="Full Name" required>
                     <input type="email" name="Email" placeholder="Business Email" required>
-                    <textarea name="Message" rows="5" placeholder="Project details..."></textarea>
+                    <textarea name="Message" rows="5" placeholder="Tell us about your project..." required></textarea>
                     <button type="submit" id="submit-btn" class="btn-submit">Submit Inquiry</button>
                 </form>
             </div>
@@ -161,10 +333,10 @@
     form.addEventListener('submit', e => {
         e.preventDefault();
         btn.disabled = true;
-        btn.innerHTML = "Sending...";
+        btn.innerHTML = "Processing...";
         fetch(scriptURL, { method: 'POST', body: new FormData(form)})
             .then(response => {
-                alert('Success! EarthWatch Consulting has received your request.');
+                alert('Success! Your inquiry has been sent to EarthWatch Consulting.');
                 form.reset();
                 btn.disabled = false;
                 btn.innerHTML = "Submit Inquiry";
@@ -172,6 +344,7 @@
             .catch(error => {
                 alert('Error!', error.message);
                 btn.disabled = false;
+                btn.innerHTML = "Submit Inquiry";
             });
     });
 </script>

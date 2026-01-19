@@ -1,426 +1,221 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>EarthWatch | GIS • Remote Sensing • Data Intelligence</title>
-  <meta name="description" content="EarthWatch provides GIS, Remote Sensing, Environmental Intelligence, and Spatial Data Solutions." />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>EarthWatch Consulting | Environmental & Geospatial Solutions</title>
+<meta name="description" content="EarthWatch provides GIS, Remote Sensing, Environmental Intelligence, and Spatial Data Solutions." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
-  <style>
-    :root {
-      --primary: #0f766e;
-      --secondary: #14b8a6;
-      --dark: #0f172a;
-      --light: #f8fafc;
-      --muted: #64748b;
-      --accent: #06b6d4;
-    }
+<style>
+:root {
+    --primary: #1a3c34; 
+    --secondary: #c5a059;
+    --light: #fdfcf8;
+    --dark: #2c3e50;
+    --muted: #64748b;
+    --shadow: 0 20px 40px rgba(0,0,0,0.05);
+}
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      scroll-behavior: smooth;
-    }
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Poppins', sans-serif; background: var(--light); color: var(--dark); line-height: 1.6; scroll-behavior: smooth; }
 
-    body {
-      font-family: 'Poppins', sans-serif;
-      background: var(--light);
-      color: var(--dark);
-      line-height: 1.7;
-    }
+/* NAVBAR */
+nav {
+    background: var(--primary);
+    padding: 0.8rem 2rem;
+    display: flex; justify-content: space-between; align-items: center;
+    position: sticky; top: 0; z-index: 1000;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+}
+nav .logo img { height: 70px; width: auto; }
+.nav-links a {
+    color: white; text-decoration: none; margin-left: 30px; font-weight: 600;
+    font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px;
+    transition: 0.3s;
+}
+.nav-links a:hover { color: var(--secondary); }
 
-    a {
-      text-decoration: none;
-      color: inherit;
-    }
+/* HERO */
+.hero {
+    background: linear-gradient(rgba(26,60,52,0.8), rgba(26,60,52,0.6)),
+                url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+    height: 75vh; display: flex; flex-direction: column; justify-content: center; align-items: center;
+    text-align: center; color: white; padding: 0 15%;
+}
+.hero h1 { font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 800; margin-bottom: 20px; line-height: 1.1; }
+.hero p { font-size: 1.2rem; max-width: 700px; margin-bottom: 30px; opacity: 0.9; }
+.btn-hero {
+    background: var(--secondary); color: var(--primary); padding: 18px 40px;
+    text-decoration: none; font-weight: 700; border-radius: 8px; text-transform: uppercase;
+    letter-spacing: 1px; transition: 0.3s; box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+.btn-hero:hover { transform: translateY(-3px); background: #d4b477; box-shadow: 0 15px 30px rgba(0,0,0,0.2); }
 
-    /* NAVBAR */
-    header {
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      background: rgba(255,255,255,0.95);
-      backdrop-filter: blur(10px);
-      box-shadow: 0 2px 12px rgba(0,0,0,0.05);
-    }
+/* SECTIONS */
+.section-padding { padding: 100px 10%; }
+.section-title { text-align: center; color: var(--primary); font-size: 2.8rem; margin-bottom: 50px; font-weight: 800; }
+.overview-statement { max-width: 900px; margin: 0 auto 60px; text-align: center; padding: 40px; background: white; border-radius: 20px; box-shadow: var(--shadow); }
+.overview-statement p { font-size: 1.3rem; color: var(--primary); font-style: italic; line-height: 1.8; }
 
-    .nav {
-      max-width: 1200px;
-      margin: auto;
-      padding: 1rem 1.5rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
+/* GRID CARDS */
+.grid-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+.card {
+    background: white; padding: 45px 35px; border-radius: 15px; box-shadow: var(--shadow); border: 1px solid rgba(0,0,0,0.03); text-align: center; transition: all 0.4s ease;
+}
+.card:hover { transform: translateY(-10px); border-top: 4px solid var(--secondary); }
+.card i { font-size: 2.5rem; color: var(--secondary); margin-bottom: 20px; display: block; }
+.card h3 { color: var(--primary); margin-bottom: 15px; font-size: 1.5rem; }
+.card p { color: var(--muted); font-size: 0.95rem; }
 
-    .logo {
-      font-size: 1.6rem;
-      font-weight: 700;
-      color: var(--primary);
-    }
+/* PORTFOLIO */
+.portfolio-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; }
+.portfolio-card { background: white; border-radius: 15px; overflow: hidden; box-shadow: var(--shadow); transition: 0.4s; display: flex; flex-direction: column; cursor: pointer; }
+.portfolio-card:hover { transform: translateY(-5px); }
+.img-container img { width: 100%; height: 300px; object-fit: contain; transition: transform 0.6s ease; }
+.portfolio-card:hover img { transform: scale(1.05); }
+.portfolio-content { padding: 25px; background: white; flex-grow: 1; }
+.tag { font-size: 0.7rem; font-weight: 800; color: var(--secondary); text-transform: uppercase; letter-spacing: 1.5px; }
+.portfolio-content h3 { margin: 8px 0; color: var(--primary); }
 
-    .nav ul {
-      list-style: none;
-      display: flex;
-      gap: 2rem;
-    }
+/* CONTACT */
+.contact-container { max-width: 1000px; margin: 0 auto; background: white; padding: 60px; border-radius: 24px; box-shadow: var(--shadow); display: grid; grid-template-columns: 1fr 1.2fr; gap: 60px; }
+.contact-info h3 { font-size: 2rem; color: var(--primary); margin-bottom: 25px; }
+.contact-item { display: flex; align-items: center; gap: 15px; margin-bottom: 25px; }
+.contact-item i { color: white; background: var(--secondary); padding: 12px; border-radius: 50%; font-size: 1rem; width: 40px; text-align: center; }
+.contact-form { display: flex; flex-direction: column; gap: 20px; }
+input, select, textarea { width: 100%; padding: 16px; border: 1.5px solid #edf2f7; border-radius: 12px; background: #f8fafc; font-family: inherit; }
+.btn-submit { background: var(--primary); color: white; padding: 18px; border: none; border-radius: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; cursor: pointer; transition: 0.3s; }
+.btn-submit:hover { background: var(--secondary); transform: translateY(-2px); }
 
-    .nav li a {
-      font-weight: 500;
-      color: var(--muted);
-      transition: color 0.3s, transform 0.3s;
-    }
+/* MODAL */
+.modal { display: none; position: fixed; z-index: 2000; padding: 50px; left: 0; top: 0; width: 100%; height: 100%; background: rgba(10,26,22,0.95); cursor: zoom-out; }
+.modal-content { margin: auto; display: block; max-width: 95%; max-height: 85vh; object-fit: contain; }
 
-    .nav li a:hover {
-      color: var(--primary);
-      transform: translateY(-2px);
-    }
+/* FOOTER */
+footer { background: var(--primary); color: rgba(255,255,255,0.7); padding: 60px; text-align: center; }
 
-    /* Hamburger menu */
-    .hamburger {
-      display: none;
-      flex-direction: column;
-      cursor: pointer;
-      gap: 5px;
-    }
-
-    .hamburger div {
-      width: 25px;
-      height: 3px;
-      background: var(--primary);
-      transition: all 0.3s;
-    }
-
-    @media (max-width: 768px) {
-      .nav ul {
-        position: absolute;
-        top: 70px;
-        right: 0;
-        background: white;
-        flex-direction: column;
-        width: 200px;
-        border-radius: 8px;
-        box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-        display: none;
-      }
-
-      .nav ul.active {
-        display: flex;
-      }
-
-      .hamburger {
-        display: flex;
-      }
-    }
-
-    /* HERO */
-    .hero {
-      background: linear-gradient(120deg, rgba(15,118,110,0.8), rgba(14,165,164,0.8)),
-                  url('https://images.unsplash.com/photo-1500530855697-b586d89ba3ee') center/cover no-repeat;
-      color: white;
-      padding: 8rem 1.5rem;
-      text-align: center;
-      clip-path: polygon(0 0, 100% 0, 100% 90%, 0% 100%);
-      opacity: 0;
-      transform: translateY(50px);
-      transition: all 1s ease-out;
-    }
-
-    .hero h1 {
-      font-size: clamp(2rem, 4vw, 3.5rem);
-      margin-bottom: 1rem;
-      font-weight: 700;
-      text-shadow: 0 2px 10px rgba(0,0,0,0.3);
-    }
-
-    .hero p {
-      max-width: 700px;
-      margin: auto;
-      font-size: 1.15rem;
-      opacity: 0.9;
-      text-shadow: 0 1px 5px rgba(0,0,0,0.3);
-    }
-
-    .hero .cta {
-      margin-top: 2.5rem;
-      display: inline-block;
-      background: linear-gradient(90deg, var(--primary), var(--secondary));
-      color: white;
-      padding: 0.9rem 2.5rem;
-      border-radius: 50px;
-      font-weight: 600;
-      transition: transform 0.3s, box-shadow 0.3s;
-    }
-
-    .hero .cta:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 12px 24px rgba(0,0,0,0.2);
-    }
-
-    /* SECTION */
-    section {
-      padding: 5rem 1.5rem;
-      opacity: 0;
-      transform: translateY(50px);
-      transition: all 1s ease-out;
-    }
-
-    .visible {
-      opacity: 1 !important;
-      transform: translateY(0px) !important;
-    }
-
-    .container {
-      max-width: 1200px;
-      margin: auto;
-    }
-
-    .section-title {
-      text-align: center;
-      margin-bottom: 4rem;
-    }
-
-    .section-title h2 {
-      font-size: 2.4rem;
-      color: var(--primary);
-    }
-
-    .section-title p {
-      color: var(--muted);
-      margin-top: 0.5rem;
-      font-size: 1rem;
-    }
-
-    /* SERVICES */
-    .services {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 2.5rem;
-    }
-
-    .card {
-      background: rgba(255,255,255,0.9);
-      border-radius: 1.2rem;
-      padding: 2.2rem;
-      box-shadow: 0 20px 40px rgba(0,0,0,0.05);
-      transition: transform 0.4s, box-shadow 0.4s;
-      backdrop-filter: blur(10px);
-    }
-
-    .card:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 25px 50px rgba(0,0,0,0.15);
-    }
-
-    .card h3 {
-      margin-bottom: 1rem;
-      color: var(--primary);
-    }
-
-    .card p {
-      color: var(--muted);
-      font-size: 0.96rem;
-    }
-
-    /* PORTFOLIO */
-    .portfolio {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 1.8rem;
-    }
-
-    .portfolio img {
-      width: 100%;
-      border-radius: 1.2rem;
-      box-shadow: 0 15px 35px rgba(0,0,0,0.1);
-      transition: transform 0.3s;
-    }
-
-    .portfolio img:hover {
-      transform: scale(1.05);
-    }
-
-    /* CONTACT */
-    .contact {
-      background: #ecfeff;
-    }
-
-    .contact-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 2rem;
-      align-items: start;
-    }
-
-    .contact-info p {
-      margin-bottom: 0.8rem;
-      color: var(--muted);
-      font-size: 1rem;
-    }
-
-    form {
-      background: white;
-      padding: 2rem;
-      border-radius: 1.2rem;
-      box-shadow: 0 20px 40px rgba(0,0,0,0.05);
-    }
-
-    input, textarea {
-      width: 100%;
-      padding: 0.9rem;
-      margin-bottom: 1.2rem;
-      border-radius: 0.7rem;
-      border: 1px solid #cbd5f5;
-      font-family: inherit;
-      transition: border 0.3s;
-    }
-
-    input:focus, textarea:focus {
-      border-color: var(--primary);
-      outline: none;
-    }
-
-    button {
-      background: linear-gradient(90deg, var(--primary), var(--secondary));
-      color: white;
-      border: none;
-      padding: 0.9rem 2rem;
-      border-radius: 50px;
-      font-weight: 600;
-      cursor: pointer;
-      transition: transform 0.3s, box-shadow 0.3s;
-    }
-
-    button:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 12px 25px rgba(0,0,0,0.2);
-    }
-
-    /* FOOTER */
-    footer {
-      background: var(--dark);
-      color: #cbd5f5;
-      text-align: center;
-      padding: 2rem 1rem;
-      font-size: 0.95rem;
-    }
-  </style>
+@media (max-width: 850px) {
+    .contact-container { grid-template-columns: 1fr; padding: 40px 20px; }
+    .section-padding { padding: 80px 5%; }
+    nav { flex-direction: column; padding: 15px; }
+    .nav-links { margin-top: 15px; }
+    .nav-links a { margin: 0 10px; font-size: 0.75rem; }
+}
+</style>
 </head>
 <body>
 
-<header>
-  <nav class="nav">
-    <div class="logo">EarthWatch</div>
-    <ul>
-      <li><a href="#services">Services</a></li>
-      <li><a href="#portfolio">Portfolio</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-    <div class="hamburger">
-      <div></div>
-      <div></div>
-      <div></div>
+<nav>
+    <div class="logo">
+        <img src="https://i.postimg.cc/B6fp7qSG/Earth-Watch-logo.png" alt="EarthWatch Logo">
     </div>
-  </nav>
+    <div class="nav-links">
+        <a href="#">Home</a>
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#portfolio">Portfolio</a>
+        <a href="#contact">Contact</a>
+    </div>
+</nav>
+
+<header class="hero">
+    <h1>Precision Mapping,<br>Sustainable Solutions.</h1>
+    <p>We Help Governments & NGOs Make Data-Driven Environmental Decisions Through GIS, Remote Sensing & Risk Modeling.</p>
+    <a href="#contact" class="btn-hero">Get Started</a>
 </header>
 
-<section class="hero">
-  <h1>Spatial Intelligence for a Sustainable Future</h1>
-  <p>We deliver GIS, Remote Sensing, Environmental Analytics, and Decision‑Support Systems powered by geospatial data.</p>
-  <a href="#contact" class="cta">Get in Touch</a>
+<section id="about" class="section-padding">
+    <h2 class="section-title">Corporate Profile</h2>
+    <div class="overview-statement">
+        <p>"EarthWatch Consulting Firm is an environmental and geospatial consulting company supporting sustainable development through science-based, regulatory-compliant solutions."</p>
+    </div>
+    <div class="grid-container">
+        <div class="card">
+            <i class="fas fa-microscope"></i>
+            <h3>Our Approach</h3>
+            <p>We leverage cutting-edge geospatial technology and data-driven analysis to deliver insights tailored to strict regulatory standards.</p>
+        </div>
+        <div class="card">
+            <i class="fas fa-shield-alt"></i>
+            <h3>Our Commitment</h3>
+            <p>Quality and integrity guide our mission to promote long-term environmental protection and sustainable infrastructure growth.</p>
+        </div>
+    </div>
 </section>
 
-<section id="services">
-  <div class="container">
-    <div class="section-title">
-      <h2>Our Services</h2>
-      <p>Professional geospatial and environmental solutions</p>
+<section id="services" class="section-padding" style="background: rgba(26, 60, 52, 0.03);">
+    <h2 class="section-title">Our Expertise</h2>
+    <div class="grid-container">
+        <div class="card"><i class="fas fa-map-marked-alt"></i><h3>GIS & Remote Sensing</h3><p>Advanced spatial modeling, satellite imagery analysis, and land use mapping.</p></div>
+        <div class="card"><i class="fas fa-file-contract"></i><h3>ESIA & Audits</h3><p>Comprehensive environmental and social impact assessments for compliance.</p></div>
+        <div class="card"><i class="fas fa-water"></i><h3>Climate Risk</h3><p>Predictive flood modeling and disaster mitigation strategies for urban planning.</p></div>
     </div>
-    <div class="services">
-      <div class="card">
-        <h3>GIS & Mapping</h3>
-        <p>Spatial analysis, cartography, suitability mapping, and decision‑support dashboards.</p>
-      </div>
-      <div class="card">
-        <h3>Remote Sensing</h3>
-        <p>Satellite data analysis, land use mapping, change detection, and environmental monitoring.</p>
-      </div>
-      <div class="card">
-        <h3>Environmental Analytics</h3>
-        <p>Flood risk, air quality, water quality, climate risk, and ecosystem assessments.</p>
-      </div>
-      <div class="card">
-        <h3>Web GIS & Apps</h3>
-        <p>Interactive dashboards, Web GIS platforms, and data‑driven applications.</p>
-      </div>
-    </div>
-  </div>
 </section>
 
-<section id="portfolio">
-  <div class="container">
-    <div class="section-title">
-      <h2>Selected Work</h2>
-      <p>Examples of our mapping and analytics projects</p>
+<section id="portfolio" class="section-padding">
+    <h2 class="section-title">Technical Deliverables</h2>
+    <div class="portfolio-grid">
+        <div class="portfolio-card">
+            <div class="img-container"><img src="https://i.postimg.cc/7YqPzc2S/airports-map.png" alt="Infrastructure" onclick="openModal(this.src)"></div>
+            <div class="portfolio-content"><span class="tag">Infrastructure</span><h3>Aviation Connectivity</h3><p>Spatial distribution and network analysis for regional aviation hubs.</p></div>
+        </div>
+        <div class="portfolio-card">
+            <div class="img-container"><img src="https://i.postimg.cc/9MCvD3Dn/Kenya-geology-map.png" alt="Geology" onclick="openModal(this.src)"></div>
+            <div class="portfolio-content"><span class="tag">Geology</span><h3>Lithological Survey</h3><p>High-resolution mapping of tectonic structures and geological formations.</p></div>
+        </div>
+        <div class="portfolio-card">
+            <div class="img-container"><img src="https://i.postimg.cc/zf98b0sT/Solar-Panels-Suitability-Mapping.png" alt="Energy" onclick="openModal(this.src)"></div>
+            <div class="portfolio-content"><span class="tag">Renewable Energy</span><h3>Solar Farm Suitability</h3><p>Multi-Criteria Decision Analysis (MCDA) for renewable energy site selection.</p></div>
+        </div>
+        <div class="portfolio-card">
+            <div class="img-container"><img src="https://i.postimg.cc/hGG4PY7H/Whats-App-Image-2025-12-18-at-16-28-29.jpg" alt="Urban Planning" onclick="openModal(this.src)"></div>
+            <div class="portfolio-content"><span class="tag">Urban/Rural Planning</span><h3>Flood Risk Modelling</h3><p>Hydrological modeling and vulnerability mapping for flood-prone areas.</p></div>
+        </div>
     </div>
-    <div class="portfolio">
-      <img src="https://images.unsplash.com/photo-1581092160613-b7b3a5b1b1b3" alt="Map Project">
-      <img src="https://images.unsplash.com/photo-1500534314209-a25ddb2bd429" alt="Satellite Analysis">
-      <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470" alt="Environmental Mapping">
-    </div>
-  </div>
 </section>
 
-<section id="contact" class="contact">
-  <div class="container">
-    <div class="section-title">
-      <h2>Contact Us</h2>
-      <p>Let’s work together on your next project</p>
+<section id="contact" class="section-padding" style="background: rgba(26, 60, 52, 0.03);">
+    <h2 class="section-title">Engage Our Experts</h2>
+    <div class="contact-container">
+        <div class="contact-info">
+            <h3>Direct Contact</h3>
+            <div class="contact-item"><i class="fas fa-phone-alt"></i><div><p style="font-size:0.8rem;opacity:0.7;">Phone</p><strong>+254 703 860 225</strong></div></div>
+            <div class="contact-item"><i class="fas fa-envelope"></i><div><p style="font-size:0.8rem;opacity:0.7;">Email</p><strong>joseph.mwikwabe48@gmail.com</strong></div></div>
+            <p style="margin-top:20px;font-size:0.9rem;opacity:0.8;line-height:1.5;">Our technical consultants are available for complex spatial analysis projects and environmental compliance auditing across the region.</p>
+        </div>
+        <form id="google-form" class="contact-form">
+            <input type="text" name="Name" placeholder="Full Name" required>
+            <input type="email" name="Email" placeholder="Professional Email" required>
+            <select name="Service" required>
+                <option value="" disabled selected>Select Engagement Area</option>
+                <option>GIS Mapping & Spatial Analysis</option>
+                <option>Environmental Assessment (ESIA)</option>
+                <option>Climate Risk & Flood Modeling</option>
+            </select>
+            <textarea name="Message" rows="4" placeholder="Brief project summary and requirements..." required></textarea>
+            <button type="submit" id="submit-btn" class="btn-submit">Submit Inquiry</button>
+        </form>
+        <div id="success-msg" style="display:none; padding: 20px; background: #e8f5e9; color: #2e7d32; border-radius: 12px; text-align: center;">Thank you! Your inquiry has been sent to our team.</div>
     </div>
-    <div class="contact-grid">
-      <div class="contact-info">
-        <p><strong>Email:</strong> johnmwikwabe@gmail.com</p>
-        <p><strong>Location:</strong> Kenya</p>
-        <p>Reach out for collaborations, consulting, or project inquiries.</p>
-      </div>
-      <form>
-        <input type="text" placeholder="Your Name" required>
-        <input type="email" placeholder="Your Email" required>
-        <textarea rows="4" placeholder="Your Message"></textarea>
-        <button type="submit">Send Message</button>
-      </form>
-    </div>
-  </div>
 </section>
+
+<div id="myModal" class="modal" onclick="this.style.display='none'">
+    <img class="modal-content" id="img01">
+</div>
 
 <footer>
-  © 2026 EarthWatch • GIS & Remote Sensing Solutions
+    <p>&copy; 2026 EarthWatch Consulting. Guardians of the Earth, Pioneers of Progress.</p>
 </footer>
 
 <script>
-  // Hamburger toggle
-  const hamburger = document.querySelector(".hamburger");
-  const navMenu = document.querySelector(".nav ul");
-  hamburger.addEventListener("click", () => {
-    navMenu.classList.toggle("active");
-    hamburger.classList.toggle("open");
-  });
-
-  // Animate sections on scroll
-  const sections = document.querySelectorAll("section, .hero");
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("visible");
-      }
-    });
-  }, { threshold: 0.2 });
-
-  sections.forEach(section => observer.observe(section));
+function openModal(src){document.getElementById("myModal").style.display="block";document.getElementById("img01").src=src;}
+const scriptURL='https://script.google.com/macros/s/AKfycbw6CiTCGt_FlpJrkN5uxHpcgiRJ0NgN5SoHTvg5dCvpmo4xxaZ5RtCXyziv5z38Z26H/exec';
+const form=document.getElementById('google-form');const btn=document.getElementById('submit-btn');const successMsg=document.getElementById('success-msg');
+form.addEventListener('submit', e=>{e.preventDefault();btn.disabled=true;btn.innerHTML="Sending...";fetch(scriptURL,{method:'POST',body:new FormData(form)}).then(response=>{form.style.display='none';successMsg.style.display='block';}).catch(error=>{alert('Error!', error.message);btn.disabled=false;btn.innerHTML="Submit Inquiry";});});
 </script>
 
 </body>

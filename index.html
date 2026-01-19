@@ -3,41 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EarthWatch Consulting | Environmental & Geospatial Solutions</title>
+    <title>EarthWatch Consulting | Precision Geospatial Solutions</title>
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap" rel="stylesheet">
     
     <style>
         :root {
-            --forest-green: #1a3c34;
-            --emerald-accent: #2d5a4c;
+            --forest-green: #0a1a16;
+            --deep-emerald: #143029;
+            --gold-gradient: linear-gradient(135deg, #c5a059 0%, #f1d39b 50%, #b38d45 100%);
             --gold: #c5a059;         
-            --soft-ivory: #f8f9f5;   
+            --soft-ivory: #f9fafb;   
             --white: #ffffff;
-            --text-main: #1f2937;
-            --text-muted: #4b5563;
-            --shadow-sm: 0 4px 6px -1px rgb(0 0 0 / 0.1);
-            --shadow-lg: 0 20px 25px -5px rgb(0 0 0 / 0.1);
-            --transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            --text-main: #111827;
+            --text-muted: #6b7280;
+            --shadow-premium: 0 25px 50px -12px rgba(0, 0, 0, 0.08);
+            --transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
 
         body {
             font-family: 'Plus Jakarta Sans', sans-serif;
-            line-height: 1.7;
-            color: var(--text-main);
             background-color: var(--soft-ivory);
-            scroll-behavior: smooth;
+            color: var(--text-main);
+            line-height: 1.6;
             overflow-x: hidden;
         }
 
-        /* --- MODERN NAVIGATION --- */
+        /* --- NAVIGATION --- */
         nav {
-            background: rgba(26, 60, 52, 0.95);
-            backdrop-filter: blur(10px);
-            padding: 1rem 5%;
+            background: rgba(10, 26, 22, 0.85);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            padding: 0.8rem 6%;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -47,393 +47,313 @@
             border-bottom: 1px solid rgba(255,255,255,0.1);
         }
 
-        .logo img { height: 55px; width: auto; filter: brightness(1.1); }
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            text-decoration: none;
+        }
+
+        .logo-container img { height: 50px; width: auto; }
+
+        .brand-name {
+            font-size: 1.6rem;
+            font-weight: 800;
+            background: var(--gold-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: -0.5px;
+        }
 
         .nav-links a {
             color: var(--white);
             text-decoration: none;
-            margin-left: 2rem;
+            margin-left: 2.5rem;
             font-weight: 600;
-            font-size: 0.9rem;
-            transition: var(--transition);
-            opacity: 0.8;
-        }
-
-        .nav-links a:hover { color: var(--gold); opacity: 1; }
-
-        /* --- HERO SECTION --- */
-        .hero {
-            height: 90vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            background: linear-gradient(rgba(10, 26, 22, 0.7), rgba(10, 26, 22, 0.7)), 
-                        url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1920&q=80');
-            background-size: cover;
-            background-attachment: fixed;
-            color: var(--white);
-            padding: 0 10%;
-        }
-
-        .hero-content { max-width: 900px; animation: fadeInUp 1s ease-out; }
-
-        .hero h1 { 
-            font-size: clamp(2.8rem, 6vw, 5rem); 
-            font-weight: 800; 
-            line-height: 1.1;
-            margin-bottom: 1.5rem;
-            letter-spacing: -1px;
-        }
-
-        .hero p { 
-            font-size: clamp(1.1rem, 2vw, 1.4rem); 
-            margin-bottom: 2.5rem; 
-            opacity: 0.9; 
-            font-weight: 300;
-        }
-
-        .btn-hero {
-            background: var(--gold);
-            color: var(--forest-green);
-            padding: 1.2rem 2.8rem;
-            text-decoration: none;
-            font-weight: 800;
-            border-radius: 50px;
+            font-size: 0.85rem;
             text-transform: uppercase;
             letter-spacing: 1px;
             transition: var(--transition);
-            display: inline-block;
+            opacity: 0.7;
         }
 
-        .btn-hero:hover { 
-            transform: scale(1.05); 
-            box-shadow: 0 15px 30px rgba(197, 160, 89, 0.3);
-        }
+        .nav-links a:hover { opacity: 1; color: var(--gold); }
 
-        /* --- SECTIONS --- */
-        .section-padding { padding: 120px 8%; }
-        
-        .section-header { text-align: center; margin-bottom: 80px; }
-        
-        .section-title { 
-            color: var(--forest-green); 
-            font-size: clamp(2rem, 4vw, 3rem); 
-            font-weight: 800;
-            margin-bottom: 1rem;
-        }
-
-        .section-subtitle {
-            color: var(--gold);
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            font-weight: 700;
-            font-size: 0.9rem;
-        }
-
-        /* --- CARDS & GRIDS --- */
-        .grid-container {
+        /* --- HERO --- */
+        .hero {
+            min-height: 100vh;
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            grid-template-columns: 1.2fr 1fr;
+            align-items: center;
+            padding: 0 8%;
+            background: var(--forest-green);
+            color: var(--white);
             gap: 40px;
         }
 
-        .card {
-            background: var(--white);
-            padding: 50px 40px;
-            border-radius: 24px;
-            box-shadow: var(--shadow-sm);
-            transition: var(--transition);
-            border: 1px solid rgba(0,0,0,0.05);
+        .hero-text h1 {
+            font-size: clamp(3rem, 5vw, 4.5rem);
+            line-height: 1.1;
+            font-weight: 800;
+            margin-bottom: 2rem;
+        }
+
+        .hero-text p {
+            font-size: 1.25rem;
+            color: #9ca3af;
+            margin-bottom: 3rem;
+            max-width: 550px;
+        }
+
+        .hero-visual {
             position: relative;
-            overflow: hidden;
-        }
-
-        .card:hover {
-            transform: translateY(-15px);
-            box-shadow: var(--shadow-lg);
-            border-color: var(--gold);
-        }
-
-        .card i {
-            font-size: 3rem;
-            background: linear-gradient(45deg, var(--forest-green), var(--gold));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            margin-bottom: 25px;
-        }
-
-        /* --- PORTFOLIO --- */
-        .portfolio-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 30px;
-        }
-
-        .portfolio-card {
-            background: var(--white);
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: var(--shadow-sm);
-            transition: var(--transition);
-        }
-
-        .portfolio-card:hover { transform: scale(1.02); }
-
-        .portfolio-img {
-            width: 100%;
-            height: 250px;
-            object-fit: cover;
-            cursor: pointer;
-        }
-
-        .portfolio-content { padding: 30px; }
-
-        .tag {
-            background: rgba(197, 160, 89, 0.15);
-            color: var(--forest-green);
-            padding: 5px 15px;
-            border-radius: 20px;
-            font-size: 0.75rem;
-            font-weight: 700;
-            text-transform: uppercase;
-        }
-
-        /* --- CONTACT FORM --- */
-        .contact-container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            background: var(--white);
-            border-radius: 30px;
-            overflow: hidden;
-            box-shadow: var(--shadow-lg);
-        }
-
-        .contact-info {
-            background: var(--forest-green);
-            color: var(--white);
-            padding: 60px;
             display: flex;
-            flex-direction: column;
             justify-content: center;
         }
 
-        .contact-form { padding: 60px; }
+        .hero-img-blob {
+            width: 100%;
+            max-width: 500px;
+            border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+            background: url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=800&q=80');
+            background-size: cover;
+            height: 500px;
+            animation: morphing 10s infinite alternate ease-in-out;
+            box-shadow: 0 0 50px rgba(197, 160, 89, 0.2);
+        }
+
+        @keyframes morphing {
+            0% { border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; }
+            100% { border-radius: 50% 50% 20% 80% / 25% 80% 20% 75%; }
+        }
+
+        /* --- MODERN SERVICES --- */
+        .section-padding { padding: 140px 8%; }
+        
+        .section-header { margin-bottom: 80px; }
+        .section-title { font-size: 3rem; font-weight: 800; color: var(--forest-green); }
+        .accent-line { width: 80px; height: 4px; background: var(--gold-gradient); margin-top: 15px; }
+
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .service-card {
+            background: var(--white);
+            padding: 60px 40px;
+            border-radius: 32px;
+            border: 1px solid rgba(0,0,0,0.03);
+            transition: var(--transition);
+            box-shadow: var(--shadow-premium);
+        }
+
+        .service-card:hover { transform: translateY(-10px); background: var(--deep-emerald); color: white; }
+        .service-card:hover h3 { color: var(--gold); }
+        .service-card i { font-size: 2.5rem; margin-bottom: 30px; color: var(--gold); }
+
+        /* --- PORTFOLIO (BENTO BOX STYLE) --- */
+        .portfolio-bento {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: repeat(2, 300px);
+            gap: 20px;
+        }
+
+        .bento-item {
+            position: relative;
+            border-radius: 24px;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .bento-1 { grid-column: span 2; grid-row: span 2; }
+        .bento-2 { grid-column: span 2; }
+        
+        .bento-item img { width: 100%; height: 100%; object-fit: cover; transition: 0.6s transform; }
+        .bento-item:hover img { transform: scale(1.1); }
+
+        .bento-overlay {
+            position: absolute;
+            bottom: 0; left: 0; right: 0;
+            padding: 40px;
+            background: linear-gradient(transparent, rgba(0,0,0,0.8));
+            color: white;
+        }
+
+        /* --- CONTACT --- */
+        .contact-wrap {
+            background: var(--forest-green);
+            border-radius: 40px;
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            overflow: hidden;
+        }
+
+        .contact-content { padding: 80px; color: white; }
+        .contact-form { background: rgba(255,255,255,0.05); padding: 80px; backdrop-filter: blur(10px); }
 
         input, select, textarea {
-            width: 100%;
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
             padding: 1.2rem;
-            margin-bottom: 1.5rem;
-            border: 1px solid #e5e7eb;
+            color: white;
             border-radius: 12px;
-            background: #f9fafb;
-            font-family: inherit;
+            margin-bottom: 1.5rem;
+            width: 100%;
         }
 
         .btn-submit {
-            background: var(--forest-green);
-            color: var(--white);
-            width: 100%;
-            padding: 1.2rem;
+            background: var(--gold-gradient);
             border: none;
+            padding: 1.2rem;
+            width: 100%;
             border-radius: 12px;
-            font-weight: 700;
+            font-weight: 800;
+            color: var(--forest-green);
             cursor: pointer;
-            transition: var(--transition);
+            transition: 0.3s;
         }
 
-        .btn-submit:hover { background: var(--gold); }
+        .btn-submit:hover { transform: scale(1.02); filter: brightness(1.1); }
 
-        /* --- ANIMATIONS --- */
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .reveal {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: 0.8s all ease-out;
-        }
-
-        .reveal.active {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        @media (max-width: 900px) {
-            .contact-container { grid-template-columns: 1fr; }
-            .nav-links { display: none; } /* Add a hamburger menu for real use */
+        @media (max-width: 1100px) {
+            .hero { grid-template-columns: 1fr; text-align: center; padding-top: 100px; }
+            .hero-text p { margin: 0 auto 3rem; }
+            .service-grid { grid-template-columns: 1fr; }
+            .portfolio-bento { grid-template-columns: 1fr; grid-template-rows: auto; }
+            .bento-1, .bento-2 { grid-column: span 1; height: 300px; }
+            .contact-wrap { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
 
 <nav>
-    <div class="logo">
+    <a href="#" class="logo-container">
         <img src="https://i.postimg.cc/B6fp7qSG/Earth-Watch-logo.png" alt="EarthWatch Logo">
-    </div>
+        <span class="brand-name">EarthWatch</span>
+    </a>
     <div class="nav-links">
-        <a href="#">Home</a>
         <a href="#about">About</a>
         <a href="#services">Services</a>
-        <a href="#portfolio">Deliverables</a>
+        <a href="#portfolio">Projects</a>
         <a href="#contact">Contact</a>
     </div>
 </nav>
 
 <header class="hero">
-    <div class="hero-content">
-        <h1>Precision Mapping,<br><span style="color: var(--gold);">Sustainable Solutions.</span></h1>
-        <p>Providing governments and global NGOs with high-fidelity geospatial intelligence and environmental risk modeling for a changing planet.</p>
-        <a href="#contact" class="btn-hero">Start a Consultation</a>
+    <div class="hero-text">
+        <h1>Precision Mapping. <br><span style="color: var(--gold)">Sustainable</span> Future.</h1>
+        <p>Harnessing high-resolution geospatial intelligence to solve the world's most complex environmental challenges.</p>
+        <a href="#contact" class="btn-hero" style="background: var(--gold-gradient); padding: 1.2rem 2.5rem; border-radius: 50px; text-decoration: none; color: #000; font-weight: 800;">Get Started Today</a>
+    </div>
+    <div class="hero-visual">
+        <div class="hero-img-blob"></div>
     </div>
 </header>
 
-<section id="about" class="section-padding">
-    <div class="section-header reveal">
-        <span class="section-subtitle">Corporate Profile</span>
-        <h2 class="section-title">A Legacy of Data-Driven Insight</h2>
+<section id="services" class="section-padding">
+    <div class="section-header">
+        <span style="color: var(--gold); font-weight: 800; letter-spacing: 2px;">WHAT WE DO</span>
+        <h2 class="section-title">Specialized Services</h2>
+        <div class="accent-line"></div>
     </div>
-    
-    <div class="grid-container">
-        <div class="card reveal">
-            <i class="fas fa-microscope"></i>
-            <h3>Our Methodology</h3>
-            <p>We blend satellite remote sensing with ground-level audits to ensure every project meets rigorous international regulatory benchmarks.</p>
-        </div>
-        <div class="card reveal">
-            <i class="fas fa-globe-africa"></i>
-            <h3>Regional Expertise</h3>
-            <p>Specializing in East African landscapes, we provide localized knowledge for infrastructure and conservation projects.</p>
-        </div>
-        <div class="card reveal">
-            <i class="fas fa-shield-halved"></i>
-            <h3>Strategic Integrity</h3>
-            <p>Our commitment to transparency ensures that environmental assessments are honest, accurate, and actionable.</p>
-        </div>
-    </div>
-</section>
-
-<section id="services" class="section-padding" style="background: #edf1ee;">
-    <div class="section-header reveal">
-        <span class="section-subtitle">Expertise</span>
-        <h2 class="section-title">Technical Competencies</h2>
-    </div>
-    <div class="grid-container">
-        <div class="card reveal">
-            <i class="fas fa-map-marked-alt"></i>
+    <div class="service-grid">
+        <div class="service-card">
+            <i class="fas fa-layer-group"></i>
             <h3>GIS & Remote Sensing</h3>
-            <p>Advanced spatial modeling and multi-temporal satellite imagery analysis.</p>
+            <p>Processing petabytes of satellite data to provide actionable land-use and structural insights.</p>
         </div>
-        <div class="card reveal">
-            <i class="fas fa-file-contract"></i>
-            <h3>ESIA & Compliance</h3>
-            <p>Full-cycle Environmental and Social Impact Assessments for large-scale developments.</p>
+        <div class="service-card">
+            <i class="fas fa-leaf"></i>
+            <h3>ESIA Audits</h3>
+            <p>Ensuring your infrastructure projects meet global environmental and social compliance standards.</p>
         </div>
-        <div class="card reveal">
-            <i class="fas fa-cloud-showers-heavy"></i>
-            <h3>Climate Resiliency</h3>
-            <p>Predictive hydrological modeling and flood vulnerability mapping for urban centers.</p>
+        <div class="service-card">
+            <i class="fas fa-droplet"></i>
+            <h3>Hydrological Modeling</h3>
+            <p>Advanced flood risk simulations using high-accuracy elevation models for urban planning.</p>
         </div>
     </div>
 </section>
 
-<section id="portfolio" class="section-padding">
-    <div class="section-header reveal">
-        <span class="section-subtitle">Case Studies</span>
-        <h2 class="section-title">Technical Deliverables</h2>
+<section id="portfolio" class="section-padding" style="background: #fff;">
+    <div class="section-header">
+        <h2 class="section-title">Technical Portfolio</h2>
+        <p>A glimpse into our geospatial deliverables.</p>
     </div>
-    <div class="portfolio-grid">
-        <div class="portfolio-card reveal">
-            <img src="https://i.postimg.cc/7YqPzc2S/airports-map.png" class="portfolio-img" onclick="openModal(this.src)">
-            <div class="portfolio-content">
-                <span class="tag">Infrastructure</span>
-                <h3 style="margin-top:15px">Aviation Connectivity</h3>
-                <p>Regional network analysis for aviation hubs.</p>
+    <div class="portfolio-bento">
+        <div class="bento-item bento-1" onclick="openModal('https://i.postimg.cc/zf98b0sT/Solar-Panels-Suitability-Mapping.png')">
+            <img src="https://i.postimg.cc/zf98b0sT/Solar-Panels-Suitability-Mapping.png">
+            <div class="bento-overlay">
+                <span class="tag" style="background: var(--gold); padding: 5px 10px; border-radius: 5px; color: #000; font-size: 0.7rem; font-weight: 800;">RENEWABLES</span>
+                <h3>Solar Farm Suitability</h3>
             </div>
         </div>
-        <div class="portfolio-card reveal">
-            <img src="https://i.postimg.cc/zf98b0sT/Solar-Panels-Suitability-Mapping.png" class="portfolio-img" onclick="openModal(this.src)">
-            <div class="portfolio-content">
-                <span class="tag">Renewable Energy</span>
-                <h3 style="margin-top:15px">Solar Suitability Mapping</h3>
-                <p>MCDA modeling for optimal solar farm placement.</p>
+        <div class="bento-item bento-2" onclick="openModal('https://i.postimg.cc/7YqPzc2S/airports-map.png')">
+            <img src="https://i.postimg.cc/7YqPzc2S/airports-map.png">
+            <div class="bento-overlay">
+                <h3>Aviation Network Analysis</h3>
             </div>
         </div>
-        <div class="portfolio-card reveal">
-            <img src="https://i.postimg.cc/hGG4PY7H/Whats-App-Image-2025-12-18-at-16-28-29.jpg" class="portfolio-img" onclick="openModal(this.src)">
-            <div class="portfolio-content">
-                <span class="tag">Hydrology</span>
-                <h3 style="margin-top:15px">Flood Risk Modelling</h3>
-                <p>Vulnerability mapping for high-risk zones.</p>
+        <div class="bento-item" onclick="openModal('https://i.postimg.cc/hGG4PY7H/Whats-App-Image-2025-12-18-at-16-28-29.jpg')">
+            <img src="https://i.postimg.cc/hGG4PY7H/Whats-App-Image-2025-12-18-at-16-28-29.jpg">
+            <div class="bento-overlay">
+                <h3>Flood Vulnerability</h3>
+            </div>
+        </div>
+        <div class="bento-item" onclick="openModal('https://i.postimg.cc/9MCvD3Dn/Kenya-geology-map.png')">
+            <img src="https://i.postimg.cc/9MCvD3Dn/Kenya-geology-map.png">
+            <div class="bento-overlay">
+                <h3>Lithology Survey</h3>
             </div>
         </div>
     </div>
 </section>
 
 <section id="contact" class="section-padding">
-    <div class="contact-container reveal">
-        <div class="contact-info">
-            <h2 style="font-size: 2.5rem; margin-bottom: 2rem;">Let’s analyze your next project.</h2>
-            <div style="margin-bottom: 20px;">
-                <p style="opacity: 0.7; font-size: 0.9rem;">Direct Line</p>
-                <p style="font-size: 1.2rem; font-weight: 700;">+254 703 860 225</p>
+    <div class="contact-wrap">
+        <div class="contact-content">
+            <h2 style="font-size: 3rem; margin-bottom: 2rem;">Work with the experts.</h2>
+            <p style="opacity: 0.7; margin-bottom: 3rem;">Ready to digitize your environmental strategy? Our consultants are ready to assist with your next project.</p>
+            <div style="margin-bottom: 2rem;">
+                <strong>Direct Email</strong><br>
+                <span>joseph.mwikwabe48@gmail.com</span>
             </div>
             <div>
-                <p style="opacity: 0.7; font-size: 0.9rem;">Email</p>
-                <p style="font-size: 1.2rem; font-weight: 700;">joseph.mwikwabe48@gmail.com</p>
+                <strong>Phone Support</strong><br>
+                <span>+254 703 860 225</span>
             </div>
         </div>
         <div class="contact-form">
             <form id="google-form">
                 <input type="text" name="Name" placeholder="Full Name" required>
                 <input type="email" name="Email" placeholder="Email Address" required>
-                <select name="Service" required>
-                    <option value="" disabled selected>Area of Interest</option>
+                <select name="Service">
                     <option>GIS Mapping</option>
                     <option>ESIA Assessment</option>
-                    <option>Climate Risk</option>
+                    <option>Flood Modeling</option>
                 </select>
-                <textarea name="Message" rows="4" placeholder="How can we help?" required></textarea>
+                <textarea name="Message" rows="5" placeholder="Project Details"></textarea>
                 <button type="submit" id="submit-btn" class="btn-submit">Submit Inquiry</button>
             </form>
-            <div id="success-msg" style="display:none; text-align: center; color: var(--forest-green); font-weight: 700;">
-                Inquiry received. Our team will contact you shortly.
-            </div>
+            <div id="success-msg" style="display:none; color: var(--gold); font-weight: 800; text-align: center;">Sent! We'll be in touch.</div>
         </div>
     </div>
 </section>
 
-<footer style="background: var(--forest-green); color: white; padding: 4rem; text-align: center; opacity: 0.9;">
-    <p>&copy; 2026 EarthWatch Consulting. Guardians of the Earth, Pioneers of Progress.</p>
-</footer>
-
-<div id="myModal" style="display:none; position:fixed; z-index:9999; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.9); cursor:zoom-out;" onclick="this.style.display='none'">
-    <img id="img01" style="margin:auto; display:block; max-width:90%; max-height:90%; padding-top:50px;">
+<div id="myModal" style="display:none; position:fixed; z-index:9999; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.95); cursor:zoom-out;" onclick="this.style.display='none'">
+    <img id="img01" style="margin:auto; display:block; max-width:90%; max-height:85vh; transform: translateY(5vh);">
 </div>
 
 <script>
-    // Reveal animations on scroll
-    function reveal() {
-        var reveals = document.querySelectorAll(".reveal");
-        for (var i = 0; i < reveals.length; i++) {
-            var windowHeight = window.innerHeight;
-            var elementTop = reveals[i].getBoundingClientRect().top;
-            var elementVisible = 150;
-            if (elementTop < windowHeight - elementVisible) {
-                reveals[i].classList.add("active");
-            }
-        }
-    }
-    window.addEventListener("scroll", reveal);
-
     function openModal(src) {
         document.getElementById("myModal").style.display = "block";
         document.getElementById("img01").src = src;
     }
 
-    // Google Form Script
     const scriptURL = 'https://script.google.com/macros/s/AKfycbw6CiTCGt_FlpJrkN5uxHpcgiRJ0NgN5SoHTvg5dCvpmo4xxaZ5RtCXyziv5z38Z26H/exec';
     const form = document.getElementById('google-form');
     const btn = document.getElementById('submit-btn');

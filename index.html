@@ -95,11 +95,28 @@
         input, select, textarea { width: 100%; padding: 15px; margin-bottom: 15px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.08); color: white; font-family: inherit; }
         .btn-submit { width: 100%; background: var(--gold); color: var(--forest-green); padding: 15px; border: none; border-radius: 10px; font-weight: 800; cursor: pointer; text-transform: uppercase; }
 
-        /* PORTFOLIO BENTO */
-        .portfolio-bento { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
-        .portfolio-item { position: relative; border-radius: 15px; overflow: hidden; height: 280px; cursor: pointer; box-shadow: var(--shadow); }
-        .portfolio-item img { width: 100%; height: 100%; object-fit: cover; transition: 0.6s; }
-        .portfolio-overlay { position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(transparent, rgba(10,26,22,0.9)); padding: 20px; color: white; }
+        /* BEAUTIFUL MAP CARD */
+        .map-card {
+            position: relative; 
+            border-radius: 20px; 
+            overflow: hidden; 
+            height: 250px; 
+            background: url('https://images.unsplash.com/photo-1449034446853-66c86144b0ad?auto=format&fit=crop&w=800&q=80'); 
+            background-size: cover; 
+            border: 1px solid rgba(197, 160, 89, 0.3); 
+            transition: 0.3s; 
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            text-decoration: none;
+            display: block;
+            margin-top: 30px;
+        }
+        .map-card:hover { transform: scale(1.02); }
+        .map-overlay {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%; 
+            background: rgba(10, 26, 22, 0.7); 
+            display: flex; flex-direction: column; align-items: center; justify-content: center; 
+            text-align: center; padding: 20px;
+        }
 
         /* FLOATING WHATSAPP */
         .whatsapp-float { position: fixed; bottom: 30px; right: 30px; background: #25d366; color: white; padding: 15px 25px; border-radius: 50px; text-decoration: none; display: flex; align-items: center; gap: 10px; font-weight: 700; z-index: 2000; box-shadow: 0 10px 20px rgba(0,0,0,0.2); transition: 0.3s; }
@@ -132,34 +149,16 @@
 
 <header class="hero">
     <h1>Engineering a Resilient Future.</h1>
-    <p>High-resolution geospatial intelligence and environmental impact modeling for complex ecological challenges.</p>
-    <a href="#contact" class="btn-gold">Start Consultation</a>
+    <p>Providing high-resolution geospatial intelligence and environmental modeling to solve today's most complex ecological challenges.</p>
+    <a href="#contact" class="btn-gold">Consult an Analyst</a>
 </header>
 
 <section id="services" class="section-padding">
-    <h2 class="section-title">Our Expertise</h2>
+    <h2 class="section-title">Areas of Expertise</h2>
     <div class="grid">
-        <div class="card"><i class="fas fa-satellite"></i><h3>Remote Sensing</h3><p>Satellite imagery analysis for land cover and deforestation tracking.</p></div>
-        <div class="card"><i class="fas fa-drafting-compass"></i><h3>GIS Mapping</h3><p>Precision cartography for urban planning and resource management.</p></div>
-        <div class="card"><i class="fas fa-biohazard"></i><h3>ESIA Audits</h3><p>Environmental and Social Impact Assessments for major projects.</p></div>
-    </div>
-</section>
-
-<section id="projects" class="section-padding" style="background: white;">
-    <h2 class="section-title">Technical Portfolio</h2>
-    <div class="portfolio-bento">
-        <div class="portfolio-item" onclick="openModal('https://i.postimg.cc/7YqPzc2S/airports-map.png')">
-            <img src="https://i.postimg.cc/7YqPzc2S/airports-map.png">
-            <div class="portfolio-overlay"><h4>Infrastructure Mapping</h4></div>
-        </div>
-        <div class="portfolio-item" onclick="openModal('https://i.postimg.cc/9MCvD3Dn/Kenya-geology-map.png')">
-            <img src="https://i.postimg.cc/9MCvD3Dn/Kenya-geology-map.png">
-            <div class="portfolio-overlay"><h4>Geological Surveys</h4></div>
-        </div>
-        <div class="portfolio-item" onclick="openModal('https://i.postimg.cc/zf98b0sT/Solar-Panels-Suitability-Mapping.png')">
-            <img src="https://i.postimg.cc/zf98b0sT/Solar-Panels-Suitability-Mapping.png">
-            <div class="portfolio-overlay"><h4>Renewable Energy Analysis</h4></div>
-        </div>
+        <div class="card"><i class="fas fa-satellite"></i><h3>Remote Sensing</h3><p>Satellite imagery analysis for land cover change and resource tracking.</p></div>
+        <div class="card"><i class="fas fa-drafting-compass"></i><h3>GIS Mapping</h3><p>Precision cartography for urban planning and environmental management.</p></div>
+        <div class="card"><i class="fas fa-biohazard"></i><h3>ESIA Audits</h3><p>Detailed Environmental and Social Impact Assessments for major infrastructure.</p></div>
     </div>
 </section>
 
@@ -168,46 +167,35 @@
     <div class="contact-box">
         <div class="contact-info">
             <h3>Contact Details</h3>
-            <p><i class="fas fa-phone-alt" style="color:var(--gold); margin-right:10px;"></i> +254 703 860 225</p>
-            <p><i class="fas fa-envelope" style="color:var(--gold); margin-right:10px;"></i> joseph.mwikwabe48@gmail.com</p>
+            <p style="margin-bottom: 15px;"><i class="fas fa-phone-alt" style="color:var(--gold); margin-right:10px;"></i> +254 703 860 225</p>
+            <p style="margin-bottom: 15px;"><i class="fas fa-envelope" style="color:var(--gold); margin-right:10px;"></i> joseph.mwikwabe48@gmail.com</p>
+            <p style="margin-bottom: 15px;"><i class="fas fa-map-marker-alt" style="color:var(--gold); margin-right:10px;"></i> Nairobi, Kenya</p>
             
-            <div style="margin-top: 30px; border-radius: 15px; overflow: hidden; height: 250px;">
-                <iframe 
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d127641.16812836568!2d36.7578278!3d-1.2833379!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f1172d84d49a7%3A0xf7cf0254b297924c!2sNairobi!5e0!3m2!1sen!2ske!4v1705680000000!5m2!1sen!2ske" 
-                    width="100%" 
-                    height="100%" 
-                    style="border:0; filter: grayscale(1) invert(0.9) contrast(1.2);" 
-                    allowfullscreen="" 
-                    loading="lazy">
-                </iframe>
-            </div>
+            <a href="https://www.google.com/maps/search/Nairobi+Kenya" target="_blank" class="map-card">
+                <div class="map-overlay">
+                    <i class="fas fa-map-marked-alt" style="font-size: 2.5rem; color: var(--gold); margin-bottom: 15px;"></i>
+                    <h4 style="color: white; margin-bottom: 5px; font-weight: 800; text-transform: uppercase;">Nairobi, Kenya</h4>
+                    <p style="color: var(--gold); font-size: 0.8rem; letter-spacing: 2px;">CLICK TO VIEW LIVE MAP</p>
+                </div>
+            </a>
         </div>
         <div class="contact-form">
             <form id="google-form">
                 <input type="text" name="Name" placeholder="Name" required>
                 <input type="email" name="Email" placeholder="Email" required>
-                <textarea name="Message" rows="4" placeholder="Project Summary..." required></textarea>
+                <textarea name="Message" rows="4" placeholder="How can we assist you?" required></textarea>
                 <button type="submit" id="submit-btn" class="btn-submit">Send Message</button>
             </form>
-            <div id="success-msg" style="display:none; text-align:center; padding:20px; background:var(--gold); color:var(--forest-green); border-radius:10px;">SENT SUCCESSFULLY</div>
+            <div id="success-msg" style="display:none; text-align:center; padding:20px; background:var(--gold); color:var(--forest-green); border-radius:10px; font-weight:800;">SENT SUCCESSFULLY</div>
         </div>
     </div>
 </section>
 
-<div id="myModal" style="display:none; position:fixed; z-index:9999; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.95); cursor:pointer;" onclick="this.style.display='none'">
-    <img id="modal-img" style="margin:auto; display:block; max-width:90%; max-height:85vh; transform:translateY(7.5vh); border:3px solid var(--gold);">
-</div>
-
 <footer style="background: var(--forest-green); color: rgba(255,255,255,0.4); padding: 40px; text-align: center;">
-    <p>© 2026 EarthWatch Consulting Firm.</p>
+    <p>© 2026 EarthWatch Consulting Firm. Guardians of the Earth.</p>
 </footer>
 
 <script>
-    function openModal(src) {
-        document.getElementById("myModal").style.display = "block";
-        document.getElementById("modal-img").src = src;
-    }
-
     const scriptURL = 'https://script.google.com/macros/s/AKfycbw6CiTCGt_FlpJrkN5uxHpcgiRJ0NgN5SoHTvg5dCvpmo4xxaZ5RtCXyziv5z38Z26H/exec';
     const form = document.getElementById('google-form');
     const btn = document.getElementById('submit-btn');

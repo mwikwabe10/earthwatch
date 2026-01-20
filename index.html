@@ -42,16 +42,18 @@
         .logo img { height: 50px; width: auto; }
         .brand-text { color: var(--gold); font-weight: 800; font-size: 1rem; letter-spacing: 1px; line-height: 1.1; text-transform: uppercase; }
 
-        .nav-links a { color: var(--white); text-decoration: none; margin-left: 25px; font-weight: 600; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1.5px; transition: 0.3s; opacity: 0.8; }
+        .nav-links a { color: var(--white); text-decoration: none; margin-left: 35px; font-weight: 600; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1.5px; transition: 0.3s; opacity: 0.8; }
         .nav-links a:hover { color: var(--gold); opacity: 1; }
 
         /* HERO SECTION */
         .hero { 
             background: linear-gradient(rgba(10, 26, 22, 0.85), rgba(10, 26, 22, 0.75)), url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1920&q=80');
-            background-size: cover; background-position: center; height: 90vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; color: var(--white); padding: 0 15%;
+            background-size: cover; background-position: center; height: 85vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; color: var(--white); padding: 0 15%;
         }
         .hero h1 { font-size: clamp(2.5rem, 6vw, 4.5rem); font-weight: 800; line-height: 1; margin-bottom: 25px; }
-        
+        .hero p { font-size: 1.2rem; max-width: 700px; margin-bottom: 40px; opacity: 0.85; }
+
+        /* REFINED BUTTON - UPDATED SIZE & CASE */
         .btn-gold-refined { 
             background: var(--gold); 
             color: var(--forest-green); 
@@ -62,116 +64,96 @@
             transition: var(--transition); 
             display: inline-block;
             font-size: 1rem;
-            box-shadow: 0 10px 30px rgba(197, 160, 89, 0.3);
+            box-shadow: 0 4px 15px rgba(197, 160, 89, 0.2);
+        }
+        .btn-gold-refined:hover { 
+            transform: translateY(-3px); 
+            box-shadow: 0 8px 25px rgba(197, 160, 89, 0.4);
+            background: #d4b476;
         }
 
-        /* SERVICES GRID */
+        /* SECTIONS */
         .section-padding { padding: 100px 10%; }
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
-        .card { background: var(--white); padding: 50px 30px; border-radius: 20px; box-shadow: var(--shadow); transition: 0.3s; text-align: center;}
-        .card i { font-size: 2.5rem; color: var(--gold); margin-bottom: 20px; }
+        .section-header { text-align: center; margin-bottom: 60px; }
+        .section-title { color: var(--forest-green); font-size: 2.5rem; font-weight: 800; }
+        .section-subtitle { color: var(--gold); font-weight: 600; text-transform: uppercase; letter-spacing: 3px; font-size: 0.8rem; margin-bottom: 10px; display: block; }
 
-        /* PORTFOLIO */
-        .portfolio-bento { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
-        .portfolio-item { border-radius: 15px; overflow: hidden; height: 300px; box-shadow: var(--shadow); position: relative;}
-        .portfolio-item img { width: 100%; height: 100%; object-fit: contain; background: #fff; }
-        .portfolio-overlay { position: absolute; bottom: 0; left: 0; width: 100%; padding: 15px; background: rgba(10, 26, 22, 0.8); color: #fff; font-weight: 600; }
-
-        /* CONTACT & MAP */
-        .contact-box { background: var(--forest-green); border-radius: 30px; display: grid; grid-template-columns: 1fr 1fr; overflow: hidden; }
+        /* CONTACT SECTION */
+        .contact-box { background: var(--forest-green); border-radius: 30px; display: grid; grid-template-columns: 1fr 1fr; overflow: hidden; box-shadow: var(--shadow); }
         .contact-info { padding: 60px; color: white; background: var(--deep-emerald); }
-        .contact-form { padding: 60px; }
-        input, textarea { width: 100%; padding: 15px; margin-bottom: 15px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.05); color: white; }
+        .contact-form { padding: 60px; background: var(--forest-green); }
+        
+        /* THE MAP CONTAINER */
+        .map-container { 
+            margin-top: 30px; 
+            border-radius: 15px; 
+            height: 250px; 
+            width: 100%; 
+            overflow: hidden;
+            border: 1px solid rgba(197,160,89,0.3);
+        }
+
+        input, textarea { width: 100%; padding: 15px; margin-bottom: 15px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.05); color: white; outline: none; }
         .btn-submit { background: var(--gold); color: var(--forest-green); padding: 15px; border: none; border-radius: 10px; font-weight: 800; cursor: pointer; width: 100%; text-transform: uppercase; }
 
-        /* WHATSAPP */
-        .whatsapp-float { position: fixed; bottom: 40px; right: 40px; background: #25d366; color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.8rem; z-index: 2000; }
+        /* PORTFOLIO BENTO */
+        .portfolio-bento { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
+        .portfolio-item { position: relative; border-radius: 15px; overflow: hidden; height: 280px; }
+        .portfolio-item img { width: 100%; height: 100%; object-fit: cover; }
 
-        @media (max-width: 900px) { .contact-box { grid-template-columns: 1fr; } }
+        @media (max-width: 900px) { .contact-box { grid-template-columns: 1fr; } .contact-info, .contact-form { padding: 40px; } }
     </style>
 </head>
-<body id="top">
-
-<a href="https://wa.me/254703860225" class="whatsapp-float" target="_blank"><i class="fab fa-whatsapp"></i></a>
+<body id="home">
 
 <nav>
-    <a href="#top" class="brand-link">
+    <a href="#home" class="brand-link">
         <div class="logo"><img src="https://i.postimg.cc/B6fp7qSG/Earth-Watch-logo.png" alt="EarthWatch Logo"></div>
         <div class="brand-text">EarthWatch<br>Consulting</div>
     </a>
     <div class="nav-links">
-        <a href="#top">Home</a>
+        <a href="#home">Home</a>
         <a href="#services">Services</a>
-        <a href="#impact">Impact</a>
+        <a href="#projects">Portfolio</a>
         <a href="#contact">Contact</a>
     </div>
 </nav>
 
 <header class="hero">
     <h1>Engineering a Resilient Future.</h1>
-    <p>High-resolution geospatial intelligence and environmental impact modeling.</p>
+    <p>High-resolution geospatial intelligence and environmental impact modeling for a changing world.</p>
     <a href="#contact" class="btn-gold-refined">Get in Touch</a>
 </header>
-
-<section id="services" class="section-padding">
-    <div style="text-align: center; margin-bottom: 50px;">
-        <h2 style="font-size: 2.5rem; color: var(--forest-green);">Specialized Solutions</h2>
-    </div>
-    <div class="grid">
-        <div class="card"><i class="fas fa-satellite"></i><h3>Remote Sensing</h3><p>Advanced satellite imagery analysis for land cover and agricultural monitoring.</p></div>
-        <div class="card"><i class="fas fa-map-marked-alt"></i><h3>GIS Mapping</h3><p>High-precision spatial data visualization for urban planning and research.</p></div>
-        <div class="card"><i class="fas fa-leaf"></i><h3>ESIA Audits</h3><p>Assessments ensuring projects meet global environmental regulatory standards.</p></div>
-    </div>
-</section>
-
-
-
-<section id="impact" class="section-padding" style="background: #f4f6f4;">
-    <div style="text-align: center; margin-bottom: 50px;">
-        <h2 style="font-size: 2.5rem; color: var(--forest-green);">Recent Impacts</h2>
-    </div>
-    <div class="portfolio-bento">
-        <div class="portfolio-item">
-            <img src="https://i.postimg.cc/7YqPzc2S/airports-map.png">
-            <div class="portfolio-overlay">Infrastructure Optimization</div>
-        </div>
-        <div class="portfolio-item">
-            <img src="https://i.postimg.cc/9MCvD3Dn/Kenya-geology-map.png">
-            <div class="portfolio-overlay">Geological Intelligence</div>
-        </div>
-        <div class="portfolio-item">
-            <img src="https://i.postimg.cc/zf98b0sT/Solar-Panels-Suitability-Mapping.png">
-            <div class="portfolio-overlay">Renewable Energy Strategy</div>
-        </div>
-    </div>
-</section>
 
 <section id="contact" class="section-padding">
     <div class="contact-box">
         <div class="contact-info">
-            <h2 style="margin-bottom: 20px;">Get in Touch</h2>
+            <h2 style="margin-bottom: 20px;">Contact Us</h2>
             <p><i class="fas fa-phone-alt" style="color:var(--gold); margin-right:15px;"></i> +254 703 860 225</p>
-            <p style="margin-top: 15px;"><i class="fas fa-envelope" style="color:var(--gold); margin-right:15px;"></i> joseph.mwikwabe48@gmail.com</p>
+            <p style="margin-top: 10px;"><i class="fas fa-envelope" style="color:var(--gold); margin-right:15px;"></i> joseph.mwikwabe48@gmail.com</p>
             
-            <div style="margin-top: 40px; border-radius: 15px; overflow: hidden; height: 250px; border: 1px solid rgba(197,160,89,0.3);">
-                <iframe src="https://maps.google.com/?cid=18250022365525302155&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQ" width="100%" height="100%" style="border:0; filter: invert(90%) hue-rotate(150deg) contrast(1.2);" allowfullscreen="" loading="lazy"></iframe>
+            <div class="map-container">
+                <iframe 
+                    width="100%" 
+                    height="100%" 
+                    frameborder="0" 
+                    style="border:0; filter: grayscale(1) invert(0.9) contrast(1.2);" 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d127641.1636254051!2d36.75509176371759!3d-1.3031932402287714!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f1172d84d4907%3A0x1ec68bc73479482d!2sNairobi%2C%20Kenya!5e0!3m2!1sen!2ske!4v1700000000000!5m2!1sen!2ske" 
+                    allowfullscreen>
+                </iframe>
             </div>
         </div>
         <div class="contact-form">
             <form id="google-form">
-                <input type="text" name="Name" placeholder="Full Name" required>
-                <input type="email" name="Email" placeholder="Email Address" required>
-                <textarea name="Message" rows="5" placeholder="Project details..." required></textarea>
-                <button type="submit" id="submit-btn" class="btn-submit">Submit Inquiry</button>
+                <input type="text" name="Name" placeholder="Name" required>
+                <input type="email" name="Email" placeholder="Email" required>
+                <textarea name="Message" rows="4" placeholder="How can we assist you?" required></textarea>
+                <button type="submit" id="submit-btn" class="btn-submit">Submit Message</button>
             </form>
-            <div id="success-msg" style="display:none; text-align:center; padding:20px; background:var(--gold); color:var(--forest-green); border-radius:10px; font-weight:800;">INQUIRY RECEIVED</div>
+            <div id="success-msg" style="display:none; text-align:center; padding:20px; background:var(--gold); color:var(--forest-green); border-radius:10px; font-weight:800;">MESSAGE SENT</div>
         </div>
     </div>
 </section>
-
-<footer style="background: var(--forest-green); color: rgba(255,255,255,0.4); padding: 40px; text-align: center;">
-    <p>© 2026 EarthWatch Consulting Firm.</p>
-</footer>
 
 <script>
     const scriptURL = 'https://script.google.com/macros/s/AKfycbw6CiTCGt_FlpJrkN5uxHpcgiRJ0NgN5SoHTvg5dCvpmo4xxaZ5RtCXyziv5z38Z26H/exec';
@@ -188,7 +170,7 @@
                 document.getElementById('success-msg').style.display = 'block';
             })
             .catch(error => {
-                alert('Connection Error', error.message);
+                alert('Error', error.message);
                 btn.disabled = false;
             });
     });

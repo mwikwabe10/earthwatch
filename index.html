@@ -39,15 +39,12 @@
         .brand-text h1 { font-size: 1.1rem; color: var(--primary); font-weight: 700; }
         .brand-text p { font-size: 0.65rem; color: var(--accent); font-weight: 700; text-transform: uppercase; letter-spacing: 1px; }
 
-        /* Desktop Nav */
         nav { display: flex; gap: 20px; align-items: center; }
         nav a { text-decoration: none; color: var(--primary); font-weight: 600; font-size: 0.9rem; transition: 0.3s; }
         nav a:hover { color: var(--accent); }
 
-        /* Hamburger Menu Icon */
         .menu-toggle { display: none; font-size: 1.5rem; color: var(--primary); cursor: pointer; z-index: 1001; }
 
-        /* Mobile Menu Styles */
         @media (max-width: 991px) {
             .menu-toggle { display: block; }
             nav {
@@ -60,10 +57,9 @@
                 gap: 0;
                 padding: 20px 0;
                 transition: 0.4s ease-in-out;
-                box-shadow: 0 5px 10px rgba(0,0,0,0.1);
             }
-            nav.active { top: 70px; }
-            nav a { width: 100%; text-align: center; padding: 15px 0; border-bottom: 1px solid #eee; margin: 0; }
+            nav.active { top: 70px; box-shadow: 0 5px 10px rgba(0,0,0,0.1); }
+            nav a { width: 100%; text-align: center; padding: 15px 0; border-bottom: 1px solid #eee; }
         }
 
         /* Hero */
@@ -75,43 +71,27 @@
         .hero h2 { font-size: clamp(1.8rem, 5vw, 3rem); margin-bottom: 20px; font-weight: 700; }
         .hero p { font-size: 1rem; max-width: 600px; margin: 0 auto 30px; opacity: 0.9; }
 
-        /* Mobile Call Button */
-        .mobile-call {
-            display: inline-flex; align-items: center; gap: 10px; background: var(--white);
-            color: var(--primary); padding: 12px 25px; border-radius: 50px; text-decoration: none;
-            font-weight: 700; font-size: 0.9rem; margin-top: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-        }
+        /* Contact Details Styles */
+        .contact-item { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; text-decoration: none; color: inherit; font-size: 0.95rem; }
+        .contact-item i { color: var(--accent); width: 20px; text-align: center; }
+        .contact-item:hover { color: var(--accent); }
 
-        /* Stats Bar */
-        .stats-bar { 
-            background: var(--bg-silver); 
-            padding: 30px 5%; 
-            display: grid; 
-            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); 
-            gap: 20px; 
-            text-align: center; 
-        }
+        /* General Sections */
+        .section { padding: 60px 5%; }
+        .stats-bar { background: var(--bg-silver); padding: 30px 5%; display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 20px; text-align: center; }
         .stat-item h3 { font-size: 2rem; color: var(--primary); font-weight: 800; }
         .stat-item p { color: var(--accent); font-weight: 700; text-transform: uppercase; font-size: 0.75rem; }
 
-        /* Sections */
-        .section { padding: 60px 5%; }
-        .about-container { display: flex; flex-direction: column; gap: 30px; align-items: center; }
-        .about-text { width: 100%; }
-        .about-image { width: 100%; }
+        .about-container { display: flex; flex-direction: column; gap: 30px; }
         .about-image img { width: 100%; border-radius: 8px; box-shadow: 10px 10px 0 var(--accent); }
 
-        /* Services Grid */
         .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
         .service-card { padding: 30px; border: 1px solid #eee; border-radius: 8px; background: white; text-align: center; }
         .service-card i { font-size: 2.2rem; color: var(--accent); margin-bottom: 15px; display: block; }
 
-        /* Portfolio */
         .portfolio-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px; }
-        .project-item { border-radius: 8px; overflow: hidden; border: 1px solid #eee; background: white; }
-        .project-item img { width: 100%; height: 200px; object-fit: cover; display: block; }
+        .project-item img { width: 100%; height: 200px; object-fit: cover; border-radius: 8px; cursor: pointer; }
 
-        /* Lightbox */
         #lightbox {
             position: fixed; z-index: 2000; top: 0; left: 0; width: 100%; height: 100%;
             background: rgba(0,0,0,0.9); display: none; justify-content: center; align-items: center; padding: 10px;
@@ -119,7 +99,6 @@
         #lightbox img { max-width: 100%; max-height: 80vh; border: 2px solid white; }
         .close-btn { position: absolute; top: 20px; right: 25px; color: white; font-size: 2.5rem; cursor: pointer; }
 
-        /* WhatsApp Button */
         .whatsapp-float {
             position: fixed; bottom: 20px; right: 20px; background-color: #25d366; color: white;
             width: 55px; height: 55px; border-radius: 50px; text-align: center; font-size: 28px;
@@ -127,14 +106,12 @@
             text-decoration: none;
         }
 
-        /* Map UI */
         .map-frame { border-radius: 8px; overflow: hidden; height: 250px; margin-top: 15px; border: 1px solid #ddd; background: #eee; }
         
         input, textarea { width: 100%; padding: 12px; margin-bottom: 15px; border: 1px solid #ddd; border-radius: 4px; font-family: inherit; }
         .btn { background: var(--accent); color: var(--primary); padding: 12px 30px; border: none; border-radius: 4px; font-weight: 700; cursor: pointer; text-decoration: none; display: inline-block; }
         .btn-dark { background: var(--primary); color: white; width: 100%; font-size: 1rem; }
 
-        /* Desktop Adjustments */
         @media (min-width: 992px) {
             header { padding-inline: 8%; }
             .section { padding-inline: 15%; }
@@ -142,7 +119,6 @@
             .hero p { margin: 0 0 30px 0; }
             .about-container { flex-direction: row; gap: 50px; }
             .about-text, .about-image { flex: 1; }
-            .mobile-call { display: none; }
             .contact-flex { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; }
         }
 
@@ -163,11 +139,7 @@
             <p>Consulting Firm</p>
         </div>
     </a>
-
-    <div class="menu-toggle" id="mobile-menu">
-        <i class="fas fa-bars"></i>
-    </div>
-
+    <div class="menu-toggle" id="mobile-menu"><i class="fas fa-bars"></i></div>
     <nav id="nav-links">
         <a href="#home">Home</a>
         <a href="#about">About us</a>
@@ -179,12 +151,8 @@
 
 <section id="home" class="hero">
     <h2>Spatial intelligence for engineering and conservation</h2>
-    <p>Providing accurate geospatial data and environmental impact assessments for sustainable development projects.</p>
+    <p>Providing accurate geospatial data and environmental impact assessments.</p>
     <a href="#contact" class="btn">Start a project</a>
-    <br>
-    <a href="tel:+254703860225" class="mobile-call">
-        <i class="fas fa-phone-alt"></i> Call +254 703 860 225
-    </a>
 </section>
 
 <div class="stats-bar">
@@ -197,9 +165,7 @@
     <div class="about-container">
         <div class="about-text">
             <h2 style="color: var(--primary); font-size: 2rem; margin-bottom: 20px;">About us</h2>
-            <p style="margin-bottom: 15px;">EarthWatch Consulting is a specialized firm based in Nairobi, Kenya. We turn raw spatial data into actionable intelligence for engineering and environmental sectors.</p>
-            <p style="margin-bottom: 20px;">With over 20 successful projects across East Africa, we pride ourselves on technical precision in Remote Sensing and NEMA environmental audits.</p>
-            <a href="#services" class="btn" style="background: var(--primary); color: white;">See expertise</a>
+            <p style="margin-bottom: 15px;">Based in Nairobi, we turn raw spatial data into actionable intelligence. We pride ourselves on technical precision in Remote Sensing and NEMA environmental audits.</p>
         </div>
         <div class="about-image">
             <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=800&q=80" alt="GIS technical work">
@@ -210,20 +176,19 @@
 <section id="services" class="section" style="background: var(--bg-silver);">
     <h2 style="text-align: center; color: var(--primary); margin-bottom: 40px;">Our services</h2>
     <div class="grid">
-        <div class="service-card"><i class="fas fa-satellite"></i><h3>Remote sensing</h3><p>Land use change and trend monitoring.</p></div>
-        <div class="service-card"><i class="fas fa-map-marked-alt"></i><h3>GIS mapping</h3><p>Solutions for infrastructure and planning.</p></div>
-        <div class="service-card"><i class="fas fa-microscope"></i><h3>ESIAs & Audits</h3><p>NEMA and international standards compliant.</p></div>
+        <div class="service-card"><i class="fas fa-satellite"></i><h3>Remote sensing</h3><p>High-resolution satellite imagery analysis.</p></div>
+        <div class="service-card"><i class="fas fa-map-marked-alt"></i><h3>GIS mapping</h3><p>Solutions for infrastructure and regional planning.</p></div>
+        <div class="service-card"><i class="fas fa-microscope"></i><h3>ESIAs & Audits</h3><p>NEMA-compliant environmental assessments.</p></div>
     </div>
 </section>
 
 <section id="projects" class="section">
-    <h2 style="text-align: center; color: var(--primary); margin-bottom: 10px;">Portfolio</h2>
-    <p style="text-align: center; margin-bottom: 30px; font-size: 0.9rem; color: var(--text-light);">Tap to view details</p>
+    <h2 style="text-align: center; color: var(--primary); margin-bottom: 30px;">Portfolio</h2>
     <div class="portfolio-grid">
-        <div class="project-item" onclick="openFullMap(this)"><img src="https://i.postimg.cc/7YqPzc2S/airports-map.png" alt="Aviation"></div>
-        <div class="project-item" onclick="openFullMap(this)"><img src="https://i.postimg.cc/9MCvD3Dn/Kenya-geology-map.png" alt="Geology"></div>
-        <div class="project-item" onclick="openFullMap(this)"><img src="https://i.postimg.cc/zf98b0sT/Solar-Panels-Suitability-Mapping.png" alt="Solar"></div>
-        <div class="project-item" onclick="openFullMap(this)"><img src="https://i.postimg.cc/hGG4PY7H/Whats-App-Image-2025-12-18-at-16-28-29.jpg" alt="Hydrology"></div>
+        <div class="project-item" onclick="openFullMap(this)"><img src="https://i.postimg.cc/7YqPzc2S/airports-map.png" alt="Map"></div>
+        <div class="project-item" onclick="openFullMap(this)"><img src="https://i.postimg.cc/9MCvD3Dn/Kenya-geology-map.png" alt="Map"></div>
+        <div class="project-item" onclick="openFullMap(this)"><img src="https://i.postimg.cc/zf98b0sT/Solar-Panels-Suitability-Mapping.png" alt="Map"></div>
+        <div class="project-item" onclick="openFullMap(this)"><img src="https://i.postimg.cc/hGG4PY7H/Whats-App-Image-2025-12-18-at-16-28-29.jpg" alt="Map"></div>
     </div>
 </section>
 
@@ -231,7 +196,19 @@
     <div class="contact-flex">
         <div>
             <h2 style="color: var(--primary); margin-bottom: 20px;">Get in touch</h2>
-            <p>Nairobi, Kenya | joseph.mwikwabe48@gmail.com</p>
+            
+            <a href="tel:+254703860225" class="contact-item">
+                <i class="fas fa-phone-alt"></i> +254 703 860 225
+            </a>
+
+            <a href="mailto:joseph.mwikwabe48@gmail.com" class="contact-item">
+                <i class="fas fa-envelope"></i> joseph.mwikwabe48@gmail.com
+            </a>
+
+            <div class="contact-item">
+                <i class="fas fa-map-marker-alt"></i> Nairobi, Kenya
+            </div>
+
             <div class="map-frame">
                 <iframe width="100%" height="100%" frameborder="0" src="https://www.openstreetmap.org/export/embed.html?bbox=36.75%2C-1.35%2C36.95%2C-1.20&amp;layer=mapnik"></iframe>
             </div>
@@ -259,17 +236,8 @@
 <script>
     const menuToggle = document.getElementById('mobile-menu');
     const navLinks = document.getElementById('nav-links');
-
-    menuToggle.addEventListener('click', () => {
-        navLinks.classList.toggle('active');
-    });
-
-    // Close menu when a link is clicked
-    document.querySelectorAll('nav a').forEach(link => {
-        link.addEventListener('click', () => {
-            navLinks.classList.remove('active');
-        });
-    });
+    menuToggle.addEventListener('click', () => navLinks.classList.toggle('active'));
+    document.querySelectorAll('nav a').forEach(link => link.addEventListener('click', () => navLinks.classList.remove('active')));
 
     function openFullMap(element) {
         const src = element.querySelector('img').src;

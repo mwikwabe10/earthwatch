@@ -39,10 +39,9 @@
         }
 
         .brand-link { display: flex; align-items: center; text-decoration: none; gap: 18px; }
-        .logo img { height: 50px; width: auto; transition: 0.3s; }
+        .logo img { height: 50px; width: auto; }
         .brand-text { color: var(--gold); font-weight: 800; font-size: 1rem; letter-spacing: 1px; line-height: 1.1; text-transform: uppercase; }
 
-        /* Updated Nav Links to accommodate Home */
         .nav-links a { color: var(--white); text-decoration: none; margin-left: 25px; font-weight: 600; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1.5px; transition: 0.3s; opacity: 0.8; }
         .nav-links a:hover { color: var(--gold); opacity: 1; }
 
@@ -51,14 +50,12 @@
             background: linear-gradient(rgba(10, 26, 22, 0.85), rgba(10, 26, 22, 0.75)), url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1920&q=80');
             background-size: cover; background-position: center; height: 90vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; color: var(--white); padding: 0 15%;
         }
-        .hero h1 { font-size: clamp(2.5rem, 6vw, 4.5rem); font-weight: 800; line-height: 1; margin-bottom: 25px; letter-spacing: -1px; }
-        .hero p { font-size: 1.25rem; max-width: 750px; margin-bottom: 40px; opacity: 0.85; font-weight: 300; }
-
-        /* REDUCED SIZE GET IN TOUCH BUTTON */
-        .btn-gold-main { 
+        .hero h1 { font-size: clamp(2.5rem, 6vw, 4.5rem); font-weight: 800; line-height: 1; margin-bottom: 25px; }
+        
+        .btn-gold-refined { 
             background: var(--gold); 
             color: var(--forest-green); 
-            padding: 14px 35px; /* Reduced from 22px 55px */
+            padding: 14px 35px; 
             text-decoration: none; 
             font-weight: 700; 
             border-radius: 8px; 
@@ -67,97 +64,113 @@
             font-size: 1rem;
             box-shadow: 0 10px 30px rgba(197, 160, 89, 0.3);
         }
-        .btn-gold-main:hover { 
-            transform: translateY(-5px); 
-            box-shadow: 0 20px 40px rgba(197, 160, 89, 0.5);
-            background: #d4b476;
-        }
 
-        /* SECTIONS */
-        .section-padding { padding: 120px 10%; }
-        .section-header { text-align: center; margin-bottom: 80px; }
-        .section-title { color: var(--forest-green); font-size: 2.8rem; font-weight: 800; }
-        .section-subtitle { color: var(--gold); font-weight: 600; text-transform: uppercase; letter-spacing: 3px; font-size: 0.8rem; margin-bottom: 10px; display: block; }
+        /* SERVICES GRID */
+        .section-padding { padding: 100px 10%; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        .card { background: var(--white); padding: 50px 30px; border-radius: 20px; box-shadow: var(--shadow); transition: 0.3s; text-align: center;}
+        .card i { font-size: 2.5rem; color: var(--gold); margin-bottom: 20px; }
 
-        /* CONTACT SECTION */
-        .contact-box { background: var(--forest-green); border-radius: 40px; display: grid; grid-template-columns: 1fr 1fr; overflow: hidden; }
-        .contact-info { padding: 80px; color: white; background: var(--deep-emerald); }
-        .contact-form { padding: 80px; }
-        input, textarea { width: 100%; padding: 20px; margin-bottom: 20px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.05); color: white; outline: none; transition: 0.3s; }
-        .btn-submit { background: var(--gold); color: var(--forest-green); padding: 20px 40px; border: none; border-radius: 12px; font-weight: 800; cursor: pointer; width: 100%; text-transform: uppercase; letter-spacing: 2px; }
+        /* PORTFOLIO */
+        .portfolio-bento { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+        .portfolio-item { border-radius: 15px; overflow: hidden; height: 300px; box-shadow: var(--shadow); position: relative;}
+        .portfolio-item img { width: 100%; height: 100%; object-fit: contain; background: #fff; }
+        .portfolio-overlay { position: absolute; bottom: 0; left: 0; width: 100%; padding: 15px; background: rgba(10, 26, 22, 0.8); color: #fff; font-weight: 600; }
+
+        /* CONTACT & MAP */
+        .contact-box { background: var(--forest-green); border-radius: 30px; display: grid; grid-template-columns: 1fr 1fr; overflow: hidden; }
+        .contact-info { padding: 60px; color: white; background: var(--deep-emerald); }
+        .contact-form { padding: 60px; }
+        input, textarea { width: 100%; padding: 15px; margin-bottom: 15px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.05); color: white; }
+        .btn-submit { background: var(--gold); color: var(--forest-green); padding: 15px; border: none; border-radius: 10px; font-weight: 800; cursor: pointer; width: 100%; text-transform: uppercase; }
 
         /* WHATSAPP */
-        .whatsapp-float { position: fixed; bottom: 40px; right: 40px; background: #25d366; color: white; width: 70px; height: 70px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2rem; box-shadow: 0 10px 30px rgba(37, 211, 102, 0.4); z-index: 2000; transition: 0.3s; text-decoration: none; }
+        .whatsapp-float { position: fixed; bottom: 40px; right: 40px; background: #25d366; color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.8rem; z-index: 2000; }
 
-        @media (max-width: 1024px) {
-            .contact-box { grid-template-columns: 1fr; }
-        }
+        @media (max-width: 900px) { .contact-box { grid-template-columns: 1fr; } }
     </style>
 </head>
-<body id="home-top">
+<body id="top">
 
-<a href="https://wa.me/254703860225" class="whatsapp-float" target="_blank">
-    <i class="fab fa-whatsapp"></i>
-</a>
+<a href="https://wa.me/254703860225" class="whatsapp-float" target="_blank"><i class="fab fa-whatsapp"></i></a>
 
 <nav>
-    <a href="#home-top" class="brand-link">
-        <div class="logo">
-            <img src="https://i.postimg.cc/B6fp7qSG/Earth-Watch-logo.png" alt="EarthWatch Logo">
-        </div>
+    <a href="#top" class="brand-link">
+        <div class="logo"><img src="https://i.postimg.cc/B6fp7qSG/Earth-Watch-logo.png" alt="EarthWatch Logo"></div>
         <div class="brand-text">EarthWatch<br>Consulting</div>
     </a>
     <div class="nav-links">
-        <a href="#home-top">Home</a>
+        <a href="#top">Home</a>
         <a href="#services">Services</a>
-        <a href="#projects">Portfolio</a>
+        <a href="#impact">Impact</a>
         <a href="#contact">Contact</a>
     </div>
 </nav>
 
 <header class="hero">
-    <span class="section-subtitle" style="color: var(--gold)">Nairobi, Kenya</span>
-    <h1>Engineering a<br>Resilient Future.</h1>
-    <p>We provide high-resolution geospatial intelligence and environmental impact modeling for complex ecological and urban challenges.</p>
-    
-    <div class="hero-btns">
-        <a href="#contact" class="btn-gold-main">Get in Touch</a>
-    </div>
+    <h1>Engineering a Resilient Future.</h1>
+    <p>High-resolution geospatial intelligence and environmental impact modeling.</p>
+    <a href="#contact" class="btn-gold-refined">Get in Touch</a>
 </header>
+
+<section id="services" class="section-padding">
+    <div style="text-align: center; margin-bottom: 50px;">
+        <h2 style="font-size: 2.5rem; color: var(--forest-green);">Specialized Solutions</h2>
+    </div>
+    <div class="grid">
+        <div class="card"><i class="fas fa-satellite"></i><h3>Remote Sensing</h3><p>Advanced satellite imagery analysis for land cover and agricultural monitoring.</p></div>
+        <div class="card"><i class="fas fa-map-marked-alt"></i><h3>GIS Mapping</h3><p>High-precision spatial data visualization for urban planning and research.</p></div>
+        <div class="card"><i class="fas fa-leaf"></i><h3>ESIA Audits</h3><p>Assessments ensuring projects meet global environmental regulatory standards.</p></div>
+    </div>
+</section>
+
+
+
+<section id="impact" class="section-padding" style="background: #f4f6f4;">
+    <div style="text-align: center; margin-bottom: 50px;">
+        <h2 style="font-size: 2.5rem; color: var(--forest-green);">Recent Impacts</h2>
+    </div>
+    <div class="portfolio-bento">
+        <div class="portfolio-item">
+            <img src="https://i.postimg.cc/7YqPzc2S/airports-map.png">
+            <div class="portfolio-overlay">Infrastructure Optimization</div>
+        </div>
+        <div class="portfolio-item">
+            <img src="https://i.postimg.cc/9MCvD3Dn/Kenya-geology-map.png">
+            <div class="portfolio-overlay">Geological Intelligence</div>
+        </div>
+        <div class="portfolio-item">
+            <img src="https://i.postimg.cc/zf98b0sT/Solar-Panels-Suitability-Mapping.png">
+            <div class="portfolio-overlay">Renewable Energy Strategy</div>
+        </div>
+    </div>
+</section>
 
 <section id="contact" class="section-padding">
     <div class="contact-box">
         <div class="contact-info">
-            <h2 style="font-size: 2.5rem; margin-bottom: 20px;">Let's discuss your project.</h2>
-            <p style="opacity: 0.7; margin-bottom: 40px;">Our analysts are ready to help you visualize your data and minimize environmental risk.</p>
+            <h2 style="margin-bottom: 20px;">Get in Touch</h2>
             <p><i class="fas fa-phone-alt" style="color:var(--gold); margin-right:15px;"></i> +254 703 860 225</p>
             <p style="margin-top: 15px;"><i class="fas fa-envelope" style="color:var(--gold); margin-right:15px;"></i> joseph.mwikwabe48@gmail.com</p>
             
-            <div style="margin-top: 50px; border-radius: 20px; overflow: hidden; height: 250px; border: 1px solid rgba(197,160,89,0.3);">
-                <iframe 
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d127640.75545229272!2d36.764987515574515!3d-1.3032089476250767!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f1172d84d49a7%3A0xf7cf0254b297924c!2sNairobi%2C%20Kenya!5e0!3m2!1sen!2sus!4v1705741000000!5m2!1sen!2sus" 
-                    width="100%" 
-                    height="100%" 
-                    style="border:0; filter: invert(90%) hue-rotate(150deg) contrast(1.2);" 
-                    allowfullscreen="" 
-                    loading="lazy">
-                </iframe>
+            <div style="margin-top: 40px; border-radius: 15px; overflow: hidden; height: 250px; border: 1px solid rgba(197,160,89,0.3);">
+                <iframe src="https://maps.google.com/?cid=18250022365525302155&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQ" width="100%" height="100%" style="border:0; filter: invert(90%) hue-rotate(150deg) contrast(1.2);" allowfullscreen="" loading="lazy"></iframe>
             </div>
         </div>
         <div class="contact-form">
             <form id="google-form">
                 <input type="text" name="Name" placeholder="Full Name" required>
                 <input type="email" name="Email" placeholder="Email Address" required>
-                <textarea name="Message" rows="5" placeholder="Tell us about your spatial or environmental needs..." required></textarea>
+                <textarea name="Message" rows="5" placeholder="Project details..." required></textarea>
                 <button type="submit" id="submit-btn" class="btn-submit">Submit Inquiry</button>
             </form>
-            <div id="success-msg" style="display:none; text-align:center; padding:40px; background:var(--gold); color:var(--forest-green); border-radius:20px; font-weight:800;">INQUIRY RECEIVED</div>
+            <div id="success-msg" style="display:none; text-align:center; padding:20px; background:var(--gold); color:var(--forest-green); border-radius:10px; font-weight:800;">INQUIRY RECEIVED</div>
         </div>
     </div>
 </section>
 
-<footer style="background: var(--forest-green); color: rgba(255,255,255,0.4); padding: 80px 10% 40px; text-align: center;">
-    <p style="font-size: 0.8rem; letter-spacing: 2px; text-transform: uppercase;">© 2026 EarthWatch Consulting Firm. Precise Data. Sustainable Future.</p>
+<footer style="background: var(--forest-green); color: rgba(255,255,255,0.4); padding: 40px; text-align: center;">
+    <p>© 2026 EarthWatch Consulting Firm.</p>
 </footer>
 
 <script>
@@ -168,7 +181,7 @@
     form.addEventListener('submit', e => {
         e.preventDefault();
         btn.disabled = true;
-        btn.innerHTML = "Processing...";
+        btn.innerHTML = "Sending...";
         fetch(scriptURL, { method: 'POST', body: new FormData(form)})
             .then(response => {
                 form.style.display = 'none';
@@ -177,7 +190,6 @@
             .catch(error => {
                 alert('Connection Error', error.message);
                 btn.disabled = false;
-                btn.innerHTML = "Submit Inquiry";
             });
     });
 </script>

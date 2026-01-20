@@ -56,18 +56,19 @@
         .stat-item h3 { font-size: 2.5rem; color: var(--primary); font-weight: 800; }
         .stat-item p { color: var(--accent); font-weight: 700; text-transform: uppercase; font-size: 0.8rem; }
 
-        /* About Section */
+        /* Sections */
         .section { padding: 80px 8%; }
+        .section-header { margin-bottom: 40px; text-align: center; }
+        .section-header h2 { font-size: 2.2rem; color: var(--primary); margin-bottom: 10px; }
+        .section-header .line { width: 60px; height: 4px; background: var(--accent); margin: 0 auto; }
+
+        /* About Section */
         .about-container { display: flex; gap: 50px; align-items: center; flex-wrap: wrap; }
         .about-text { flex: 1; min-width: 300px; }
         .about-image { flex: 1; min-width: 300px; }
         .about-image img { width: 100%; border-radius: 8px; box-shadow: 15px 15px 0 var(--accent); }
 
         /* Services Grid */
-        .section-header { margin-bottom: 40px; text-align: center; }
-        .section-header h2 { font-size: 2.2rem; color: var(--primary); margin-bottom: 10px; }
-        .section-header .line { width: 60px; height: 4px; background: var(--accent); margin: 0 auto; }
-        
         .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
         .service-card { padding: 40px; border: 1px solid #eee; border-radius: 8px; transition: 0.3s; background: white; }
         .service-card i { font-size: 2.5rem; color: var(--accent); margin-bottom: 20px; display: block; }
@@ -86,9 +87,18 @@
         #lightbox img { max-width: 90%; max-height: 85vh; border: 4px solid white; }
         .close-btn { position: absolute; top: 20px; right: 40px; color: white; font-size: 3rem; cursor: pointer; }
 
+        /* WhatsApp Button */
+        .whatsapp-float {
+            position: fixed; bottom: 30px; right: 30px; background-color: #25d366; color: white;
+            width: 60px; height: 60px; border-radius: 50px; text-align: center; font-size: 30px;
+            box-shadow: 2px 2px 10px rgba(0,0,0,0.2); z-index: 100; display: flex; align-items: center; justify-content: center;
+            text-decoration: none; transition: 0.3s;
+        }
+        .whatsapp-float:hover { transform: scale(1.1); background-color: #128c7e; }
+
         /* Contact & Map */
         .contact-flex { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; }
-        .map-frame { border-radius: 8px; overflow: hidden; height: 350px; margin-top: 20px; border: 1px solid #ddd; position: relative; }
+        .map-frame { border-radius: 8px; overflow: hidden; height: 350px; margin-top: 20px; border: 1px solid #ddd; }
         
         input, textarea { width: 100%; padding: 12px; margin-bottom: 15px; border: 1px solid #ddd; border-radius: 4px; font-family: inherit; }
         .btn { background: var(--accent); color: var(--primary); padding: 12px 30px; border: none; border-radius: 4px; font-weight: 700; cursor: pointer; text-decoration: none; display: inline-block; }
@@ -102,6 +112,10 @@
     </style>
 </head>
 <body>
+
+<a href="https://wa.me/254703860225" class="whatsapp-float" target="_blank">
+    <i class="fab fa-whatsapp"></i>
+</a>
 
 <header>
     <a href="#home" class="brand">
@@ -122,13 +136,13 @@
 
 <section id="home" class="hero">
     <h2>Spatial intelligence for engineering and conservation</h2>
-    <p>Providing accurate geospatial data and environmental impact assessments to ensure sustainable development across East Africa.</p>
+    <p>Providing accurate geospatial data and environmental impact assessments for sustainable development projects.</p>
     <a href="#contact" class="btn">Start a project</a>
 </section>
 
 <div class="stats-bar">
-    <div class="stat-item"><h3>30+</h3><p>Projects completed</p></div>
-    <div class="stat-item"><h3>5+</h3><p>Years experience</p></div>
+    <div class="stat-item"><h3>20+</h3><p>Projects completed</p></div>
+    <div class="stat-item"><h3>9+</h3><p>Years experience</p></div>
     <div class="stat-item"><h3>100%</h3><p>Data accuracy</p></div>
 </div>
 
@@ -136,8 +150,8 @@
     <div class="about-container">
         <div class="about-text">
             <h2 style="color: var(--primary); font-size: 2.2rem; margin-bottom: 20px;">About us</h2>
-            <p style="margin-bottom: 15px;">EarthWatch Consulting is a Nairobi-based firm specialized in bridging the gap between raw spatial data and actionable environmental insights.</p>
-            <p style="margin-bottom: 20px;">With over 30 successful projects, we provide professional Remote Sensing, GIS Mapping, and NEMA-compliant environmental audits to help our clients manage risks and optimize resource allocation.</p>
+            <p style="margin-bottom: 15px;">Based in Nairobi, EarthWatch Consulting provides expert GIS and environmental solutions to help organizations navigate spatial complexities.</p>
+            <p style="margin-bottom: 20px;">Our mission is to deliver high-quality mapping and NEMA-compliant audits. With over 30 projects delivered, we serve as a trusted partner for infrastructure developers and conservation agencies in East Africa.</p>
             <a href="#services" class="btn" style="background: var(--primary); color: white;">See our expertise</a>
         </div>
         <div class="about-image">
@@ -155,17 +169,17 @@
         <div class="service-card">
             <i class="fas fa-satellite"></i>
             <h3>Remote sensing</h3>
-            <p>Satellite imagery analysis for land cover monitoring, vegetation health, and landscape dynamics.</p>
+            <p>Monitoring land use change and environmental trends using high-resolution satellite imagery.</p>
         </div>
         <div class="service-card">
             <i class="fas fa-map-marked-alt"></i>
             <h3>GIS mapping</h3>
-            <p>Custom spatial solutions for infrastructure, municipal planning, and utility asset management.</p>
+            <p>Custom spatial solutions for infrastructure, utilities, and regional municipal planning.</p>
         </div>
         <div class="service-card">
             <i class="fas fa-microscope"></i>
             <h3>Environmental audits</h3>
-            <p>Comprehensive ESIAs and audits to ensure your projects meet local and international standards.</p>
+            <p>Reliable ESIAs and audits designed to meet both local NEMA and international standards.</p>
         </div>
     </div>
 </section>
@@ -179,7 +193,7 @@
     <div class="portfolio-grid">
         <div class="project-item" onclick="openFullMap(this)">
             <img src="https://i.postimg.cc/7YqPzc2S/airports-map.png" alt="Aviation Project">
-            <div class="project-desc"><strong>Aviation safety mapping</strong></div>
+            <div class="project-desc"><strong>Aviation mapping</strong></div>
         </div>
         <div class="project-item" onclick="openFullMap(this)">
             <img src="https://i.postimg.cc/9MCvD3Dn/Kenya-geology-map.png" alt="Geology Project">
@@ -200,20 +214,12 @@
     <div class="contact-flex">
         <div>
             <h2 style="color: var(--primary); margin-bottom: 20px;">Get in touch</h2>
-            <p>Nairobi, Kenya</p>
+            <p>Location: Nairobi, Kenya</p>
             <p>Email: joseph.mwikwabe48@gmail.com</p>
             <p>Phone: +254 703 860 225</p>
             
             <div class="map-frame">
-                <iframe 
-                    width="100%" 
-                    height="100%" 
-                    frameborder="0" 
-                    scrolling="no" 
-                    marginheight="0" 
-                    marginwidth="0" 
-                    src="https://maps.google.com/maps?q=-1.286389,36.817223&hl=en&z=14&amp;output=embed">
-                </iframe>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d127641.3323086963!2d36.7584224!3d-1.3032036!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f1172d84d49a7%3A0xf7cf0254b297924c!2sNairobi%2C%20Kenya!5e0!3m2!1sen!2ske!4v1705000000000!5m2!1sen!2ske" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
             </div>
         </div>
         <div class="contact-box" style="background: var(--bg-silver); padding: 40px; border-radius: 8px;">

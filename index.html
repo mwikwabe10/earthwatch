@@ -43,10 +43,10 @@
         nav a:hover { color: var(--accent); }
 
         /* Hero */
-        .hero {
+        #home {
             background: linear-gradient(rgba(16, 64, 51, 0.8), rgba(16, 64, 51, 0.8)), url('https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=1920&q=80');
             background-size: cover; background-position: center;
-            padding: 100px 8%; color: white;
+            padding: 120px 8%; color: white;
         }
         .hero h2 { font-size: clamp(2rem, 5vw, 3rem); margin-bottom: 20px; font-weight: 700; max-width: 800px; }
         .hero p { font-size: 1.1rem; max-width: 600px; margin-bottom: 30px; opacity: 0.9; }
@@ -58,9 +58,15 @@
 
         /* Sections */
         .section { padding: 80px 8%; }
-        .section-header { margin-bottom: 50px; text-align: center; }
+        .section-header { margin-bottom: 40px; text-align: center; }
         .section-header h2 { font-size: 2.2rem; color: var(--primary); margin-bottom: 10px; }
         .section-header .line { width: 60px; height: 4px; background: var(--accent); margin: 0 auto; }
+
+        /* About Section */
+        .about-container { display: flex; gap: 50px; align-items: center; flex-wrap: wrap; }
+        .about-text { flex: 1; min-width: 300px; }
+        .about-image { flex: 1; min-width: 300px; }
+        .about-image img { width: 100%; border-radius: 8px; box-shadow: 15px 15px 0 var(--accent); }
 
         /* Services Grid */
         .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
@@ -69,19 +75,19 @@
         .service-card i { font-size: 2.5rem; color: var(--accent); margin-bottom: 20px; display: block; }
         .service-card h3 { color: var(--primary); margin-bottom: 15px; }
 
-        /* Portfolio (Zoomable) */
+        /* Portfolio */
         .portfolio-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
         .project-item { border-radius: 8px; overflow: hidden; cursor: pointer; border: 1px solid #eee; }
         .project-item img { width: 100%; height: 250px; object-fit: cover; display: block; transition: 0.3s; }
         .project-item:hover img { transform: scale(1.05); }
         .project-desc { padding: 15px; background: white; }
 
-        /* Lightbox for zooming */
+        /* Lightbox */
         #lightbox {
             position: fixed; z-index: 2000; top: 0; left: 0; width: 100%; height: 100%;
             background: rgba(0,0,0,0.9); display: none; justify-content: center; align-items: center;
         }
-        #lightbox img { max-width: 90%; max-height: 85vh; border: 4px solid white; box-shadow: 0 0 30px rgba(0,0,0,0.5); }
+        #lightbox img { max-width: 90%; max-height: 85vh; border: 4px solid white; }
         .close-btn { position: absolute; top: 20px; right: 40px; color: white; font-size: 3rem; cursor: pointer; }
 
         /* Contact */
@@ -96,7 +102,7 @@
         footer { background: var(--primary); color: white; padding: 40px 8%; text-align: center; }
 
         @media (max-width: 768px) {
-            .contact-flex { grid-template-columns: 1fr; }
+            .contact-flex, .about-container { grid-template-columns: 1fr; }
             header { flex-direction: column; gap: 15px; }
         }
     </style>
@@ -104,7 +110,7 @@
 <body>
 
 <header>
-    <a href="#" class="brand">
+    <a href="#home" class="brand">
         <img src="https://i.postimg.cc/B6fp7qSG/Earth-Watch-logo.png" alt="EarthWatch Logo">
         <div class="brand-text">
             <h1>EarthWatch</h1>
@@ -112,25 +118,41 @@
         </div>
     </a>
     <nav>
-        <a href="#services">Our services</a>
-        <a href="#projects">Work portfolio</a>
-        <a href="#contact">Contact us</a>
+        <a href="#home">Home</a>
+        <a href="#about">About us</a>
+        <a href="#services">Services</a>
+        <a href="#projects">Portfolio</a>
+        <a href="#contact">Contact</a>
     </nav>
 </header>
 
-<section class="hero">
+<section id="home" class="hero">
     <h2>Spatial intelligence for engineering and conservation</h2>
-    <p>We provide accurate geospatial data and environmental impact assessments to ensure sustainable development across East Africa.</p>
+    <p>Providing accurate geospatial data and environmental impact assessments to ensure sustainable development across East Africa.</p>
     <a href="#contact" class="btn">Start a project</a>
 </section>
 
 <div class="stats-bar">
-    <div class="stat-item"><h3>20+</h3><p>Projects completed</p></div>
-    <div class="stat-item"><h3>9+</h3><p>Years experience</p></div>
+    <div class="stat-item"><h3>30+</h3><p>Projects completed</p></div>
+    <div class="stat-item"><h3>5+</h3><p>Years experience</p></div>
     <div class="stat-item"><h3>100%</h3><p>Data accuracy</p></div>
 </div>
 
-<section id="services" class="section">
+<section id="about" class="section">
+    <div class="about-container">
+        <div class="about-text">
+            <h2 style="color: var(--primary); font-size: 2.2rem; margin-bottom: 20px;">About us</h2>
+            <p style="margin-bottom: 15px;">EarthWatch Consulting is a specialized firm based in Nairobi, Kenya. We focus on bridging the gap between raw spatial data and high-impact decision-making.</p>
+            <p style="margin-bottom: 20px;">Our expertise spans across Remote Sensing, GIS database architecture, and Environmental Impact Assessments. Having successfully completed over 30 projects, we have a proven track record of delivering NEMA-compliant audits and precise mapping for infrastructure and conservation projects alike.</p>
+            <a href="#services" class="btn" style="background: var(--primary); color: white;">Explore our expertise</a>
+        </div>
+        <div class="about-image">
+            <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=800&q=80" alt="Technical GIS Work">
+        </div>
+    </div>
+</section>
+
+<section id="services" class="section" style="background: var(--bg-silver);">
     <div class="section-header">
         <h2>Our services</h2>
         <div class="line"></div>
@@ -139,31 +161,31 @@
         <div class="service-card">
             <i class="fas fa-satellite"></i>
             <h3>Remote sensing</h3>
-            <p>Monitoring land use change, vegetation health, and environmental degradation using satellite imagery.</p>
+            <p>We analyze high-resolution satellite imagery to monitor land cover changes, vegetation health, and landscape dynamics.</p>
         </div>
         <div class="service-card">
             <i class="fas fa-map-marked-alt"></i>
             <h3>GIS mapping</h3>
-            <p>Developing high-resolution spatial databases for urban planning, utility management, and resource allocation.</p>
+            <p>Custom GIS solutions for infrastructure development, utility management, and precise municipal planning.</p>
         </div>
         <div class="service-card">
             <i class="fas fa-microscope"></i>
             <h3>Environmental audits</h3>
-            <p>Conducting ESIAs and NEMA-compliant audits to evaluate and mitigate project environmental risks.</p>
+            <p>Comprehensive ESIA reports and environmental audits to ensure your projects meet local and international standards.</p>
         </div>
     </div>
 </section>
 
-<section id="projects" class="section" style="background: #fafafa;">
+<section id="projects" class="section">
     <div class="section-header">
         <h2>Work portfolio</h2>
         <div class="line"></div>
-        <p style="margin-top: 15px; color: var(--text-light);">Click any map below to view the full resolution</p>
+        <p style="margin-top: 15px; color: var(--text-light);">Click any map to view the full resolution</p>
     </div>
     <div class="portfolio-grid">
         <div class="project-item" onclick="openFullMap(this)">
             <img src="https://i.postimg.cc/7YqPzc2S/airports-map.png" alt="Aviation Project">
-            <div class="project-desc"><strong>Aviation mapping</strong></div>
+            <div class="project-desc"><strong>Aviation safety mapping</strong></div>
         </div>
         <div class="project-item" onclick="openFullMap(this)">
             <img src="https://i.postimg.cc/9MCvD3Dn/Kenya-geology-map.png" alt="Geology Project">
@@ -180,17 +202,17 @@
     </div>
 </section>
 
-<section id="contact" class="section">
+<section id="contact" class="section" style="background: #fafafa;">
     <div class="contact-flex">
         <div>
             <h2 style="color: var(--primary); margin-bottom: 20px;">Get in touch</h2>
-            <p>Nairobi, Kenya</p>
+            <p>Location: Nairobi, Kenya</p>
             <p>Email: joseph.mwikwabe48@gmail.com</p>
             <p>Phone: +254 703 860 225</p>
             
             <div class="map-frame">
                 <iframe 
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d127640.28210214614!2d36.7548408!3d-1.286389!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f1172d84d4997%3A0xf7cf055412a240!2sNairobi!5e0!3m2!1sen!2ske!4v1700000000000" 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m13!1m1!2s-1.286389!2m2!1s36.817223!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f10d03138297d%3A0x27d190840c8b0!2sNairobi!5e0!3m2!1sen!2ske!4v1705750000000!5m2!1sen!2ske" 
                     width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy">
                 </iframe>
             </div>
@@ -207,7 +229,7 @@
 </section>
 
 <div id="lightbox" onclick="this.style.display='none'">
-    <span class="close-btn">&times;</span>
+    <span class="close-btn">×</span>
     <img id="full-img" src="">
 </div>
 

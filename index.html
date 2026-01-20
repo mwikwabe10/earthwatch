@@ -44,7 +44,17 @@
         .logo img { height: 50px; width: auto; }
         .brand-text { color: var(--gold); font-weight: 800; font-size: 1rem; letter-spacing: 1px; line-height: 1.1; text-transform: uppercase; }
 
-        .nav-links a { color: var(--white); text-decoration: none; margin-left: 35px; font-weight: 600; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1.5px; transition: 0.3s; opacity: 0.8; }
+        .nav-links a { 
+            color: var(--white); 
+            text-decoration: none; 
+            margin-left: 30px; 
+            font-weight: 600; 
+            font-size: 0.75rem; 
+            text-transform: uppercase; 
+            letter-spacing: 1.5px; 
+            transition: 0.3s; 
+            opacity: 0.8; 
+        }
         .nav-links a:hover { color: var(--gold); opacity: 1; }
 
         /* HERO SECTION */
@@ -55,7 +65,7 @@
         .hero h1 { font-size: clamp(2.5rem, 6vw, 4.5rem); font-weight: 800; line-height: 1; margin-bottom: 25px; }
         .hero p { font-size: 1.2rem; max-width: 700px; margin-bottom: 40px; opacity: 0.85; }
 
-        /* REDUCED & REFINED BUTTON */
+        /* REFINED BUTTON */
         .btn-gold-refined { 
             background: var(--gold); 
             color: var(--forest-green); 
@@ -106,14 +116,15 @@
         @media (max-width: 900px) { .contact-box { grid-template-columns: 1fr; } .contact-info, .contact-form { padding: 40px; } }
     </style>
 </head>
-<body>
+<body id="home">
 
 <nav>
-    <a href="#" class="brand-link">
+    <a href="#home" class="brand-link">
         <div class="logo"><img src="https://i.postimg.cc/B6fp7qSG/Earth-Watch-logo.png" alt="EarthWatch Logo"></div>
         <div class="brand-text">EarthWatch<br>Consulting</div>
     </a>
     <div class="nav-links">
+        <a href="#home">Home</a>
         <a href="#services">Services</a>
         <a href="#projects">Portfolio</a>
         <a href="#contact">Contact</a>
@@ -185,15 +196,12 @@
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script>
     // Initialize Professional Leaflet Map
-    // Coordinates for Nairobi, Kenya
     var map = L.map('map').setView([-1.286389, 36.817223], 13);
 
-    // Use a dark-themed cartographic layer to match the brand
     L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
         attribution: '&copy; OpenStreetMap contributors &copy; CARTO'
     }).addTo(map);
 
-    // Add a custom Gold Marker
     var marker = L.circleMarker([-1.286389, 36.817223], {
         radius: 8,
         fillColor: "#c5a059",
@@ -204,6 +212,9 @@
     }).addTo(map);
     
     marker.bindPopup("<b>EarthWatch Consulting</b><br>Nairobi, Kenya").openPopup();
+
+    // Fix map gray box issue on load
+    setTimeout(function(){ map.invalidateSize(); }, 500);
 
     // Form Script
     const scriptURL = 'https://script.google.com/macros/s/AKfycbw6CiTCGt_FlpJrkN5uxHpcgiRJ0NgN5SoHTvg5dCvpmo4xxaZ5RtCXyziv5z38Z26H/exec';

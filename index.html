@@ -3,305 +3,222 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EarthWatch Consulting | Environmental & Geospatial Solutions Nairobi</title>
-    <meta name="description" content="EarthWatch Consulting provides high-resolution GIS mapping, remote sensing, and ESIA audits in Nairobi, Kenya. Engineering a resilient future through spatial intelligence.">
+    <title>EarthWatch | Geospatial Intelligence & Environmental Modeling</title>
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap" rel="stylesheet">
     
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
     <style>
         :root {
-            --forest-green: #0a1a16; 
-            --deep-emerald: #143029;
-            --gold: #c5a059;         
-            --soft-ivory: #fdfcf8;   
-            --white: #ffffff;
-            --text-main: #2c3e50;
-            --shadow: 0 30px 60px rgba(0,0,0,0.12);
-            --transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+            --forest: #050d0b;
+            --emerald: #0f2923;
+            --gold: #c5a059;
+            --text-dim: rgba(255, 255, 255, 0.6);
+            --glass: rgba(255, 255, 255, 0.03);
+            --border: rgba(255, 255, 255, 0.08);
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
-        html { scroll-behavior: smooth; }
-        body { font-family: 'Plus Jakarta Sans', sans-serif; line-height: 1.6; color: var(--text-main); background-color: var(--soft-ivory); overflow-x: hidden; }
-
-        /* NAVIGATION */
-        nav { 
-            background: rgba(10, 26, 22, 0.98);
-            backdrop-filter: blur(10px);
-            padding: 1rem 8%; 
-            display: flex; 
-            justify-content: space-between; 
-            align-items: center; 
-            position: sticky; 
-            top: 0; 
-            z-index: 1000; 
-            border-bottom: 1px solid rgba(197, 160, 89, 0.2);
+        body { 
+            font-family: 'Plus Jakarta Sans', sans-serif; 
+            background-color: var(--forest); 
+            color: #fff;
+            overflow-x: hidden;
+            line-height: 1.6;
         }
 
-        .brand-link { display: flex; align-items: center; text-decoration: none; gap: 15px; }
-        .logo img { height: 45px; width: auto; }
-        .brand-text { color: var(--gold); font-weight: 800; font-size: 0.9rem; letter-spacing: 1px; line-height: 1.1; text-transform: uppercase; }
-
-        .nav-links { display: flex; align-items: center; }
-        .nav-links a { color: var(--white); text-decoration: none; margin-left: 30px; font-weight: 600; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1.5px; transition: 0.3s; opacity: 0.8; }
-        .nav-links a:hover { color: var(--gold); opacity: 1; }
-
-        .menu-toggle { display: none; color: var(--gold); font-size: 1.5rem; cursor: pointer; }
-
-        @media (max-width: 768px) {
-            .menu-toggle { display: block; }
-            .nav-links { 
-                display: none; 
-                position: absolute; top: 100%; left: 0; width: 100%; 
-                flex-direction: column; background: var(--forest-green); 
-                padding: 20px 0; border-bottom: 2px solid var(--gold);
-            }
-            .nav-links.active { display: flex; }
-            .nav-links a { margin: 15px 0; font-size: 0.9rem; }
+        /* FLOATING NAV */
+        nav {
+            position: fixed;
+            top: 25px; left: 50%;
+            transform: translateX(-50%);
+            width: 90%; max-width: 1100px;
+            background: rgba(5, 13, 11, 0.8);
+            backdrop-filter: blur(15px);
+            padding: 12px 30px;
+            border-radius: 100px;
+            border: 1px solid var(--border);
+            display: flex; justify-content: space-between; align-items: center;
+            z-index: 1000;
         }
+
+        .logo { font-weight: 800; color: var(--gold); text-decoration: none; letter-spacing: 1px; font-size: 0.9rem; }
+        .nav-links a { color: #fff; text-decoration: none; margin-left: 25px; font-size: 0.7rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; opacity: 0.6; transition: 0.3s; }
+        .nav-links a:hover { opacity: 1; color: var(--gold); }
 
         /* HERO SECTION */
-        .hero { 
-            background: linear-gradient(rgba(10, 26, 22, 0.85), rgba(10, 26, 22, 0.75)), url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1920&q=80');
-            background-size: cover; background-position: center; height: 90vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; color: var(--white); padding: 0 10%;
-        }
-        .hero h1 { font-size: clamp(2.2rem, 6vw, 4.5rem); font-weight: 800; line-height: 1.1; margin-bottom: 25px; }
-        .hero p { font-size: 1.2rem; max-width: 700px; margin-bottom: 40px; opacity: 0.9; font-weight: 300; }
-
-        .btn-gold-main { 
-            background: var(--gold); color: var(--forest-green); padding: 20px 50px; 
-            text-decoration: none; font-weight: 800; border-radius: 50px; 
-            text-transform: uppercase; letter-spacing: 2px; transition: var(--transition);
-            box-shadow: 0 10px 30px rgba(197, 160, 89, 0.3); animation: pulse-gold 2s infinite;
-        }
-        .btn-gold-main:hover { transform: translateY(-3px); background: #d4b476; }
-
-        @keyframes pulse-gold {
-            0% { box-shadow: 0 0 0 0 rgba(197, 160, 89, 0.7); }
-            70% { box-shadow: 0 0 0 15px rgba(197, 160, 89, 0); }
-            100% { box-shadow: 0 0 0 0 rgba(197, 160, 89, 0); }
+        .hero {
+            height: 100vh;
+            display: flex; flex-direction: column; justify-content: center; align-items: center;
+            text-align: center; padding: 0 10%;
+            background: radial-gradient(circle at top, var(--emerald) 0%, var(--forest) 70%);
         }
 
-        /* SECTIONS */
-        .section-padding { padding: 100px 10%; }
-        .section-header { text-align: center; margin-bottom: 60px; }
-        .section-title { color: var(--forest-green); font-size: 2.5rem; font-weight: 800; line-height: 1.2; }
-        .section-subtitle { color: var(--gold); font-weight: 600; text-transform: uppercase; letter-spacing: 3px; font-size: 0.8rem; margin-bottom: 10px; display: block; }
-
-        /* CARDS */
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
-        .card { background: var(--white); padding: 50px 35px; border-radius: 20px; box-shadow: var(--shadow); transition: var(--transition); position: relative; overflow: hidden; }
-        .card:hover { transform: translateY(-10px); }
-        .card i { font-size: 2.5rem; color: var(--gold); margin-bottom: 25px; }
-
-        /* PORTFOLIO */
-        .portfolio-bento { display: grid; grid-template-columns: repeat(4, 1fr); grid-auto-rows: 250px; gap: 20px; }
-        .portfolio-item { position: relative; border-radius: 20px; overflow: hidden; cursor: pointer; box-shadow: var(--shadow); }
-        .portfolio-item img { width: 100%; height: 100%; object-fit: cover; transition: 0.8s; }
-        .portfolio-overlay { 
-            position: absolute; bottom: 0; left: 0; right: 0; padding: 25px; 
-            background: linear-gradient(transparent, rgba(10, 26, 22, 0.95)); 
-            color: white; opacity: 0; transition: 0.4s; 
+        .hero h1 { 
+            font-size: clamp(3rem, 10vw, 6.5rem); 
+            font-weight: 800; line-height: 0.9; 
+            margin-bottom: 25px; letter-spacing: -2px;
+            background: linear-gradient(180deg, #fff 30%, var(--gold) 100%);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
         }
-        .portfolio-item:hover .portfolio-overlay { opacity: 1; }
-        .portfolio-item:hover img { transform: scale(1.1); }
-        .item-1 { grid-column: span 2; grid-row: span 2; }
-        .item-2 { grid-column: span 2; }
 
-        /* CONTACT */
-        .contact-box { background: var(--forest-green); border-radius: 30px; display: grid; grid-template-columns: 1fr 1fr; overflow: hidden; }
-        .contact-info { padding: 60px; color: white; background: var(--deep-emerald); }
-        .contact-form { padding: 60px; }
-        input, textarea { width: 100%; padding: 18px; margin-bottom: 20px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.05); color: white; font-family: inherit; }
-        .btn-submit { background: var(--gold); color: var(--forest-green); padding: 18px; border: none; border-radius: 10px; font-weight: 800; cursor: pointer; width: 100%; text-transform: uppercase; letter-spacing: 2px; }
+        .hero p { max-width: 550px; color: var(--text-dim); font-size: 1.1rem; margin-bottom: 40px; }
 
-        /* WHATSAPP & MODAL */
-        .whatsapp-float { position: fixed; bottom: 30px; right: 30px; background: #25d366; color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.8rem; z-index: 2000; text-decoration: none; box-shadow: 0 10px 20px rgba(0,0,0,0.2); }
-        
-        @media (max-width: 1024px) {
-            .contact-box { grid-template-columns: 1fr; }
-            .portfolio-bento { grid-template-columns: repeat(2, 1fr); }
-            .item-1, .item-2 { grid-column: span 2; }
+        .btn {
+            padding: 18px 40px; border-radius: 100px; font-weight: 800; text-transform: uppercase;
+            letter-spacing: 2px; text-decoration: none; font-size: 0.8rem;
+            transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        .btn-primary { background: var(--gold); color: var(--forest); box-shadow: 0 10px 30px rgba(197, 160, 89, 0.2); }
+        .btn-primary:hover { transform: scale(1.05) translateY(-5px); box-shadow: 0 20px 40px rgba(197, 160, 89, 0.4); }
+
+        /* BENTO SERVICES */
+        .section { padding: 140px 10%; opacity: 0; transform: translateY(50px); }
+        .bento-grid {
+            display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;
+        }
+        .bento-item {
+            background: var(--glass); border: 1px solid var(--border);
+            padding: 50px 40px; border-radius: 35px; transition: 0.4s;
+        }
+        .bento-item:hover { background: rgba(255,255,255,0.06); border-color: var(--gold); }
+        .bento-item i { font-size: 2rem; color: var(--gold); margin-bottom: 25px; display: block; }
+        .bento-item h3 { font-size: 1.6rem; margin-bottom: 15px; }
+        .bento-item p { color: var(--text-dim); font-size: 0.95rem; }
+
+        /* CONTACT BLOCK */
+        .contact-card {
+            background: linear-gradient(135deg, var(--emerald), var(--forest));
+            border-radius: 50px; padding: 80px;
+            display: grid; grid-template-columns: 1fr 1fr; gap: 80px;
+            border: 1px solid var(--border);
+        }
+
+        input, textarea {
+            width: 100%; padding: 20px; margin-bottom: 20px;
+            background: rgba(255,255,255,0.03); border: 1px solid var(--border);
+            border-radius: 15px; color: #fff; font-family: inherit;
+        }
+        input:focus { border-color: var(--gold); outline: none; }
+
+        @media (max-width: 900px) {
+            .bento-grid, .contact-card { grid-template-columns: 1fr; }
+            .hero h1 { font-size: 4rem; }
+            .contact-card { padding: 40px; }
         }
     </style>
 </head>
 <body>
 
-<a href="https://wa.me/254703860225" class="whatsapp-float" target="_blank"><i class="fab fa-whatsapp"></i></a>
-
-<nav>
-    <a href="#" class="brand-link">
-        <div class="logo"><img src="https://i.postimg.cc/B6fp7qSG/Earth-Watch-logo.png" alt="EarthWatch Logo"></div>
-        <div class="brand-text">EarthWatch<br>Consulting</div>
-    </a>
-    <div class="menu-toggle" id="mobile-menu-btn"><i class="fas fa-bars"></i></div>
-    <div class="nav-links" id="nav-menu">
-        <a href="#about">About</a>
-        <a href="#services">Services</a>
-        <a href="#projects">Portfolio</a>
+<nav id="navbar">
+    <a href="#" class="logo">EARTHWATCH</a>
+    <div class="nav-links">
+        <a href="#about">Intelligence</a>
+        <a href="#services">Expertise</a>
         <a href="#contact">Contact</a>
     </div>
 </nav>
 
 <header class="hero">
-    <span class="section-subtitle">Nairobi, Kenya</span>
-    <h1>Engineering a<br>Resilient Future.</h1>
-    <p>Precision geospatial intelligence and environmental impact modeling for complex ecological and urban challenges across Africa.</p>
-    <a href="#contact" class="btn-gold-main">Start a Project</a>
+    <div id="hero-content">
+        <h1>Precision<br>Intelligence.</h1>
+        <p>Advanced GIS and Remote Sensing solutions for East Africa’s infrastructure and environmental conservation sectors.</p>
+        <a href="#contact" class="btn btn-primary">Begin Briefing</a>
+    </div>
 </header>
 
-<section id="about" class="section-padding" style="background: var(--white);">
-    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 60px; align-items: center;">
+
+
+<section id="services" class="section">
+    <div style="margin-bottom: 60px;">
+        <span style="color: var(--gold); letter-spacing: 3px; font-weight: 800; font-size: 0.7rem; text-transform: uppercase;">Our Ecosystem</span>
+        <h2 style="font-size: 3rem; margin-top: 10px;">Strategic Solutions.</h2>
+    </div>
+    <div class="bento-grid">
+        <div class="bento-item" style="grid-column: span 2;">
+            <i class="fas fa-microchip"></i>
+            <h3>Automated Remote Sensing</h3>
+            <p>Deploying machine learning models to analyze satellite telemetry for rapid deforestation tracking and agricultural health monitoring.</p>
+        </div>
+        <div class="bento-item">
+            <i class="fas fa-draw-polygon"></i>
+            <h3>Spatial Planning</h3>
+            <p>High-fidelity GIS mapping for urban expansion and resource management.</p>
+        </div>
+        <div class="bento-item">
+            <i class="fas fa-wind"></i>
+            <h3>Renewable Siting</h3>
+            <p>Technical modeling for wind and solar energy suitability based on multi-criteria spatial analysis.</p>
+        </div>
+        <div class="bento-item" style="grid-column: span 2;">
+            <i class="fas fa-file-contract"></i>
+            <h3>Environmental Audits</h3>
+            <p>Comprehensive ESIA reports that align with both Kenyan NEMA standards and international sustainability frameworks.</p>
+        </div>
+    </div>
+</section>
+
+<section id="contact" class="section">
+    <div class="contact-card">
         <div>
-            <span class="section-subtitle">Our Vision</span>
-            <h2 class="section-title" style="font-size: 2.2rem; margin-bottom: 20px;">Leading Geospatial Intelligence in East Africa.</h2>
-            <p style="margin-bottom: 20px; color: #555;">
-                Based in Nairobi, <strong>EarthWatch Consulting</strong> bridges the gap between complex environmental data and actionable business strategy. We specialize in <strong>Remote Sensing</strong> and <strong>GIS solutions</strong> tailored for the unique landscape of Kenya and the broader African continent.
-            </p>
-            <p style="color: #555;">
-                From tracking deforestation in the Rift Valley to site suitability for renewable energy, our mission is to ensure that infrastructure development and ecological preservation move forward in tandem.
-            </p>
-        </div>
-        <div style="background: var(--soft-ivory); padding: 40px; border-radius: 24px; border-left: 5px solid var(--gold); box-shadow: var(--shadow);">
-            <h4 style="color: var(--forest-green); margin-bottom: 15px; font-weight: 800;">Why EarthWatch?</h4>
-            <ul style="list-style: none; color: #555;">
-                <li style="margin-bottom: 12px;"><i class="fas fa-check-circle" style="color: var(--gold); margin-right: 10px;"></i> <strong>Data Accuracy:</strong> High-res satellite & LiDAR processing.</li>
-                <li style="margin-bottom: 12px;"><i class="fas fa-check-circle" style="color: var(--gold); margin-right: 10px;"></i> <strong>Regulatory Expertise:</strong> Full NEMA & international compliance.</li>
-                <li style="margin-bottom: 12px;"><i class="fas fa-check-circle" style="color: var(--gold); margin-right: 10px;"></i> <strong>Local Context:</strong> Deep expertise in East African geography.</li>
-            </ul>
-        </div>
-    </div>
-</section>
-
-
-
-<section id="services" class="section-padding">
-    <div class="section-header">
-        <span class="section-subtitle">Our Expertise</span>
-        <h2 class="section-title">Specialized Solutions</h2>
-    </div>
-    <div class="grid">
-        <div class="card">
-            <i class="fas fa-satellite"></i>
-            <h3>Remote Sensing</h3>
-            <p>Advanced satellite imagery analysis for land cover change, deforestation tracking, and precision agriculture.</p>
-        </div>
-        <div class="card">
-            <i class="fas fa-drafting-compass"></i>
-            <h3>GIS Mapping</h3>
-            <p>High-precision spatial data visualization for urban planning, asset management, and demographic research.</p>
-        </div>
-        <div class="card">
-            <i class="fas fa-leaf"></i>
-            <h3>ESIA Audits</h3>
-            <p>Environmental and Social Impact Assessments ensuring infrastructure projects meet global regulatory standards.</p>
-        </div>
-    </div>
-</section>
-
-<section id="projects" class="section-padding" style="background: #f0f2f0;">
-    <div class="section-header">
-        <span class="section-subtitle">Our Impact</span>
-        <h2 class="section-title">Recent Projects</h2>
-    </div>
-    <div class="portfolio-bento">
-        <div class="portfolio-item item-1" onclick="openModal('https://i.postimg.cc/7YqPzc2S/airports-map.png')">
-            <img src="https://i.postimg.cc/7YqPzc2S/airports-map.png" alt="Aviation Mapping Project">
-            <div class="portfolio-overlay"><h4>Aviation Infrastructure</h4></div>
-        </div>
-        <div class="portfolio-item item-2" onclick="openModal('https://i.postimg.cc/9MCvD3Dn/Kenya-geology-map.png')">
-            <img src="https://i.postimg.cc/9MCvD3Dn/Kenya-geology-map.png" alt="Geological Survey Mapping">
-            <div class="portfolio-overlay"><h4>Geological Surveys</h4></div>
-        </div>
-        <div class="portfolio-item" onclick="openModal('https://i.postimg.cc/zf98b0sT/Solar-Panels-Suitability-Mapping.png')">
-            <img src="https://i.postimg.cc/zf98b0sT/Solar-Panels-Suitability-Mapping.png" alt="Solar Suitability Analysis">
-            <div class="portfolio-overlay"><h4>Solar Farm Analysis</h4></div>
-        </div>
-        <div class="portfolio-item" onclick="openModal('https://i.postimg.cc/hGG4PY7H/Whats-App-Image-2025-12-18-at-16-28-29.jpg')">
-            <img src="https://i.postimg.cc/hGG4PY7H/Whats-App-Image-2025-12-18-at-16-28-29.jpg" alt="Hydrology Project">
-            <div class="portfolio-overlay"><h4>Hydrological Modeling</h4></div>
-        </div>
-    </div>
-</section>
-
-<section id="contact" class="section-padding">
-    <div class="contact-box">
-        <div class="contact-info">
-            <h2 style="font-size: 2.2rem; margin-bottom: 20px;">Let's discuss your project.</h2>
-            <p style="opacity: 0.8; margin-bottom: 40px;">Our analysts are ready to help you visualize your data and minimize environmental risk.</p>
-            <p><i class="fas fa-phone-alt" style="color:var(--gold); margin-right:15px;"></i> +254 703 860 225</p>
-            <p style="margin-top: 15px;"><i class="fas fa-envelope" style="color:var(--gold); margin-right:15px;"></i> joseph.mwikwabe48@gmail.com</p>
-            
-            <div style="margin-top: 50px; border-radius: 20px; overflow: hidden; height: 200px;">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d127641.17366113643!2d36.764510497265625!3d-1.286389!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f1172d84d49a7%3A0xf7cf0254b297924c!2sNairobi!5e0!3m2!1sen!2ske!4v1700000000000" width="100%" height="100%" style="border:0; filter: grayscale(1) invert(0.9);" allowfullscreen="" loading="lazy"></iframe>
+            <h2 style="font-size: 3rem; line-height: 1.1; margin-bottom: 20px;">Ready to see<br>the data?</h2>
+            <p style="color: var(--text-dim); margin-bottom: 40px;">Contact our Nairobi headquarters to discuss spatial integration for your next project.</p>
+            <div style="color: var(--gold); font-size: 0.9rem;">
+                <p><i class="fas fa-phone"></i> +254 703 860 225</p>
+                <p style="margin: 15px 0;"><i class="fas fa-envelope"></i> joseph.mwikwabe48@gmail.com</p>
             </div>
         </div>
-        <div class="contact-form">
-            <form id="google-form">
-                <label style="color:rgba(255,255,255,0.6); font-size:0.8rem;">FULL NAME</label>
-                <input type="text" name="Name" required placeholder="e.g. John Doe">
-                <label style="color:rgba(255,255,255,0.6); font-size:0.8rem;">EMAIL ADDRESS</label>
-                <input type="email" name="Email" required placeholder="name@company.com">
-                <label style="color:rgba(255,255,255,0.6); font-size:0.8rem;">HOW CAN WE HELP?</label>
-                <textarea name="Message" rows="4" required placeholder="Tell us about your spatial or environmental needs..."></textarea>
-                <button type="submit" id="submit-btn" class="btn-submit">Submit Inquiry</button>
-            </form>
-            <div id="success-msg" style="display:none; text-align:center; padding:40px; background:var(--gold); color:var(--forest-green); border-radius:15px; font-weight:800;">INQUIRY RECEIVED. WE WILL CONTACT YOU SHORTLY.</div>
-        </div>
+        <form>
+            <input type="text" placeholder="Consultant Name / Firm" required>
+            <input type="email" placeholder="Email Address" required>
+            <textarea rows="4" placeholder="Brief project overview..."></textarea>
+            <button type="submit" class="btn btn-primary" style="width: 100%; border: none; cursor: pointer;">Send Inquiry</button>
+        </form>
     </div>
 </section>
 
-<div id="myModal" style="display:none; position:fixed; z-index:9999; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.95); cursor:zoom-out; display:none; justify-content:center; align-items:center;" onclick="this.style.display='none'">
-    <img id="modal-img" style="max-width:90%; max-height:80vh; border-radius:10px; border: 2px solid var(--gold);">
-</div>
-
-<footer style="background: var(--forest-green); color: rgba(255,255,255,0.4); padding: 60px 10%; text-align: center; border-top: 1px solid rgba(197,160,89,0.1);">
-    <p style="font-size: 0.75rem; letter-spacing: 2px; text-transform: uppercase;">© 2026 EarthWatch Consulting Firm. Precise Data. Sustainable Future.</p>
+<footer style="padding: 60px; text-align: center; opacity: 0.3; font-size: 0.6rem; letter-spacing: 3px;">
+    &copy; 2026 EARTHWATCH CONSULTING • NAIROBI • ALL RIGHTS RESERVED
 </footer>
 
 <script>
-    // Mobile Menu Toggle
-    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-    const navMenu = document.getElementById('nav-menu');
+    // Initialize GSAP
+    gsap.registerPlugin(ScrollTrigger);
 
-    mobileMenuBtn.addEventListener('click', () => {
-        navMenu.classList.toggle('active');
+    // Hero Entry Animation
+    gsap.from("#hero-content > *", {
+        duration: 1.2,
+        y: 60,
+        opacity: 0,
+        stagger: 0.2,
+        ease: "power4.out"
     });
 
-    // Close menu when clicking a link
-    document.querySelectorAll('.nav-links a').forEach(link => {
-        link.addEventListener('click', () => {
-            navMenu.classList.remove('active');
+    // Nav reveal
+    gsap.from("nav", {
+        duration: 1,
+        y: -100,
+        opacity: 0,
+        delay: 0.5,
+        ease: "power3.out"
+    });
+
+    // Scroll Revel for sections
+    gsap.utils.toArray(".section").forEach(section => {
+        gsap.to(section, {
+            scrollTrigger: {
+                trigger: section,
+                start: "top 80%",
+                toggleActions: "play none none none"
+            },
+            duration: 1,
+            y: 0,
+            opacity: 1,
+            ease: "power3.out"
         });
-    });
-
-    // Modal Gallery
-    function openModal(src) {
-        const modal = document.getElementById("myModal");
-        modal.style.display = "flex";
-        document.getElementById("modal-img").src = src;
-    }
-
-    // Google Sheets Form Logic
-    const scriptURL = 'https://script.google.com/macros/s/AKfycbw6CiTCGt_FlpJrkN5uxHpcgiRJ0NgN5SoHTvg5dCvpmo4xxaZ5RtCXyziv5z38Z26H/exec';
-    const form = document.getElementById('google-form');
-    const btn = document.getElementById('submit-btn');
-
-    form.addEventListener('submit', e => {
-        e.preventDefault();
-        btn.disabled = true;
-        btn.innerHTML = "Processing...";
-        fetch(scriptURL, { method: 'POST', body: new FormData(form)})
-            .then(response => {
-                form.style.display = 'none';
-                document.getElementById('success-msg').style.display = 'block';
-            })
-            .catch(error => {
-                alert('Connection Error. Please try again.');
-                btn.disabled = false;
-                btn.innerHTML = "Submit Inquiry";
-            });
     });
 </script>
 

@@ -255,7 +255,7 @@
     }
 
     // Google Sheets Submission Logic
-    const scriptURL = 'https://script.google.com/macros/s/AKfycbwaIrsIYfprkbCZ3FMlzdtHTlo2bJSopPcQIZWuWJZTCFLDn-ugCf_OJUphbpx5rRCR/exec';
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbyhC3Iaev9leGPwvw0R7ckqkCyGPyV-xmsMKOYae9rTQ0WJvqS0p2FmMe0bCvjKar8T/exec';
     const form = document.getElementById('contact-form');
     const btn = document.getElementById('submit-button');
 
@@ -271,7 +271,7 @@
         })
         .then(() => {
             // With no-cors, we assume success if the network request didn't fail
-            alert("Thank you! Your inquiry has been sent successfully.");
+            alert("Success! Your inquiry has been sent to EarthWatch.");
             btn.disabled = false;
             btn.innerHTML = "Send Message";
             form.reset();

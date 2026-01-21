@@ -267,18 +267,20 @@
         fetch(scriptURL, { 
             method: 'POST', 
             body: new FormData(form),
-            mode: 'no-cors' // ADD THIS LINE
+            mode: 'no-cors' // This is critical for Google Apps Script
         })
         .then(() => {
-            // With no-cors, we assume success if the network request didn't fail
+            // Because of 'no-cors', we cannot read the response, 
+            // but if we reach this point, the data was sent.
             alert("Success! Your inquiry has been sent to EarthWatch.");
             btn.disabled = false;
             btn.innerHTML = "Send Message";
             form.reset();
         })
         .catch(error => {
-            console.error('Error!', error.message);
-            alert("Something went wrong. Please check your internet or contact us via WhatsApp.");
+            // This only triggers if the network actually fails (offline)
+            console.error('Network Error:', error.message);
+            alert("Connection error. Please try again or message us on WhatsApp.");
             btn.disabled = false;
             btn.innerHTML = "Send Message";
         });

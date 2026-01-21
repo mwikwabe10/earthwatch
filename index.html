@@ -264,19 +264,24 @@
         btn.disabled = true;
         btn.innerHTML = "Sending...";
 
-        fetch(scriptURL, { method: 'POST', body: new FormData(form)})
-            .then(response => {
-                alert("Thank you! Your inquiry has been sent successfully.");
-                btn.disabled = false;
-                btn.innerHTML = "Send Message";
-                form.reset();
-            })
-            .catch(error => {
-                console.error('Error!', error.message);
-                alert("Something went wrong. Please try again or contact us via WhatsApp.");
-                btn.disabled = false;
-                btn.innerHTML = "Send Message";
-            });
+        fetch(scriptURL, { 
+            method: 'POST', 
+            body: new FormData(form),
+            mode: 'no-cors' // ADD THIS LINE
+        })
+        .then(() => {
+            // With no-cors, we assume success if the network request didn't fail
+            alert("Thank you! Your inquiry has been sent successfully.");
+            btn.disabled = false;
+            btn.innerHTML = "Send Message";
+            form.reset();
+        })
+        .catch(error => {
+            console.error('Error!', error.message);
+            alert("Something went wrong. Please check your internet or contact us via WhatsApp.");
+            btn.disabled = false;
+            btn.innerHTML = "Send Message";
+        });
     });
 </script>
 

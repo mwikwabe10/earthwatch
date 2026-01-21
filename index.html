@@ -225,12 +225,14 @@
         </div>
         <div style="background: var(--bg-silver); padding: 30px; border-radius: 12px;">
             <h3 style="margin-bottom: 20px; color: var(--primary);">Inquiry Form</h3>
-            <form>
-                <input type="text" placeholder="Full Name" required>
-                <input type="email" placeholder="Email Address" required>
-                <textarea rows="6" placeholder="Project details..." required></textarea>
-                <button type="submit" class="btn btn-dark">Send Message</button>
+            
+            <form id="contact-form">
+                <input type="text" name="Full Name" placeholder="Full Name" required>
+                <input type="email" name="Email" placeholder="Email Address" required>
+                <textarea name="Project Details" rows="6" placeholder="Project details..." required></textarea>
+                <button type="submit" id="submit-button" class="btn btn-dark">Send Message</button>
             </form>
+            
         </div>
     </div>
 </section>
@@ -240,6 +242,7 @@
 </footer>
 
 <script>
+    // Navigation and Lightbox Logic
     const menuToggle = document.getElementById('mobile-menu');
     const navLinks = document.getElementById('nav-links');
     menuToggle.addEventListener('click', () => navLinks.classList.toggle('active'));
@@ -250,6 +253,31 @@
         document.getElementById('full-img').src = src;
         document.getElementById('lightbox').style.display = 'flex';
     }
+
+    // Google Sheets Submission Logic
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbwaIrsIYfprkbCZ3FMlzdtHTlo2bJSopPcQIZWuWJZTCFLDn-ugCf_OJUphbpx5rRCR/exec';
+    const form = document.getElementById('contact-form');
+    const btn = document.getElementById('submit-button');
+
+    form.addEventListener('submit', e => {
+        e.preventDefault();
+        btn.disabled = true;
+        btn.innerHTML = "Sending...";
+
+        fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+            .then(response => {
+                alert("Thank you! Your inquiry has been sent successfully.");
+                btn.disabled = false;
+                btn.innerHTML = "Send Message";
+                form.reset();
+            })
+            .catch(error => {
+                console.error('Error!', error.message);
+                alert("Something went wrong. Please try again or contact us via WhatsApp.");
+                btn.disabled = false;
+                btn.innerHTML = "Send Message";
+            });
+    });
 </script>
 
 </body>

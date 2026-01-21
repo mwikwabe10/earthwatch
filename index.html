@@ -71,51 +71,37 @@
         .hero h2 { font-size: clamp(1.8rem, 5vw, 3rem); margin-bottom: 20px; font-weight: 700; }
         .hero p { font-size: 1rem; max-width: 600px; margin: 0 auto 30px; opacity: 0.9; }
 
-        /* Portfolio & Lightbox (Zoom Fix) */
-        .portfolio-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px; }
-        .project-item img { width: 100%; height: 200px; object-fit: cover; border-radius: 8px; cursor: pointer; transition: 0.3s; border: 1px solid #ddd; }
-        .project-item img:hover { transform: scale(1.02); box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
-
-        #lightbox {
-            position: fixed;
-            top: 0; left: 0;
-            width: 100%; height: 100%;
-            background: rgba(0,0,0,0.9);
-            display: none; /* Controlled by JS */
-            justify-content: center;
-            align-items: center;
-            z-index: 2000;
-            cursor: zoom-out;
-        }
-        #lightbox img {
-            max-width: 90%;
-            max-height: 85vh;
-            border: 3px solid white;
-            border-radius: 4px;
-            box-shadow: 0 0 25px rgba(0,0,0,0.5);
-        }
-        .close-btn {
-            position: absolute;
-            top: 20px;
-            right: 30px;
-            color: white;
-            font-size: 40px;
-            font-weight: bold;
-            cursor: pointer;
-        }
-
-        /* Rest of Styles */
-        .section { padding: 60px 5%; }
+        /* Stats Bar */
         .stats-bar { background: var(--bg-silver); padding: 30px 5%; display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 20px; text-align: center; }
         .stat-item h3 { font-size: 2rem; color: var(--primary); font-weight: 800; }
         .stat-item p { color: var(--accent); font-weight: 700; text-transform: uppercase; font-size: 0.75rem; }
 
-        .service-card { padding: 30px; border: 1px solid #eee; border-radius: 8px; background: white; text-align: center; transition: 0.3s; }
-        .service-card i { font-size: 2.2rem; color: var(--accent); margin-bottom: 15px; display: block; }
+        /* Services Grid */
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; }
+        .service-card { padding: 40px 30px; border: 1px solid #eee; border-radius: 12px; background: white; text-align: center; transition: 0.3s ease; }
+        .service-card:hover { transform: translateY(-10px); border-color: var(--accent); box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+        .service-card i { font-size: 2.5rem; color: var(--accent); margin-bottom: 20px; display: block; }
+        .service-card h3 { color: var(--primary); margin-bottom: 15px; font-size: 1.3rem; }
 
+        /* Portfolio & Lightbox */
+        .portfolio-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px; }
+        .project-item img { width: 100%; height: 220px; object-fit: cover; border-radius: 8px; cursor: pointer; transition: 0.3s; border: 1px solid #ddd; }
+        .project-item img:hover { transform: scale(1.02); box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+
+        #lightbox {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.9); display: none; justify-content: center;
+            align-items: center; z-index: 2000; cursor: zoom-out;
+        }
+        #lightbox img { max-width: 90%; max-height: 85vh; border: 3px solid white; border-radius: 4px; }
+        .close-btn { position: absolute; top: 20px; right: 30px; color: white; font-size: 40px; font-weight: bold; cursor: pointer; }
+
+        /* Sections & Contact */
+        .section { padding: 80px 5%; }
         .contact-item { display: flex; align-items: center; gap: 12px; margin-bottom: 15px; text-decoration: none; color: inherit; font-size: 0.95rem; }
         .contact-item i { color: var(--accent); width: 20px; text-align: center; }
-        .hours-box { background: #fff; padding: 15px; border-radius: 6px; border-left: 4px solid var(--accent); margin-bottom: 20px; font-size: 0.9rem; }
+        .hours-box { background: #fff; padding: 20px; border-radius: 8px; border-left: 4px solid var(--accent); margin-bottom: 25px; font-size: 0.9rem; box-shadow: 0 2px 10px rgba(0,0,0,0.03); }
+        .hours-box h4 { margin-bottom: 10px; color: var(--primary); display: flex; align-items: center; gap: 8px; }
         .map-frame { border-radius: 8px; overflow: hidden; height: 280px; margin-top: 15px; border: 1px solid #ddd; }
         
         input, textarea { width: 100%; padding: 12px; margin-bottom: 15px; border: 1px solid #ddd; border-radius: 4px; font-family: inherit; }
@@ -174,9 +160,40 @@
     <div class="stat-item"><h3>100%</h3><p>Accuracy</p></div>
 </div>
 
+<section id="about" class="section">
+    <h2 style="color: var(--primary); font-size: 2.2rem; margin-bottom: 20px;">About EarthWatch</h2>
+    <p style="font-size: 1.1rem; color: var(--text-light); max-width: 800px;">
+        EarthWatch Consulting is a premier specialized firm based in Nairobi, Kenya. We transform complex raw spatial data into actionable intelligence for the engineering and environmental sectors. 
+    </p>
+    <p style="margin-top: 15px; color: var(--text-light);">
+        With nearly a decade of experience across East Africa, our team delivers technical precision in Remote Sensing, GIS mapping, and NEMA-compliant environmental audits.
+    </p>
+</section>
+
+<section id="services" class="section" style="background: var(--bg-silver);">
+    <h2 style="text-align: center; color: var(--primary); margin-bottom: 40px;">Our Core Services</h2>
+    <div class="grid">
+        <div class="service-card">
+            <i class="fas fa-satellite"></i>
+            <h3>Remote Sensing</h3>
+            <p>Advanced analysis of satellite imagery for environmental monitoring and land use change detection.</p>
+        </div>
+        <div class="service-card">
+            <i class="fas fa-map-marked-alt"></i>
+            <h3>GIS Mapping</h3>
+            <p>Customized spatial solutions for infrastructure design, regional planning, and resource management.</p>
+        </div>
+        <div class="service-card">
+            <i class="fas fa-microscope"></i>
+            <h3>ESIAs & Audits</h3>
+            <p>Comprehensive Environmental & Social Impact Assessments and audits following NEMA standards.</p>
+        </div>
+    </div>
+</section>
+
 <section id="projects" class="section">
     <h2 style="text-align: center; color: var(--primary); margin-bottom: 10px;">Work Portfolio</h2>
-    <p style="text-align: center; margin-bottom: 30px; color: var(--text-light);">Click any map below to enlarge</p>
+    <p style="text-align: center; margin-bottom: 40px; color: var(--text-light);">Click any map below to enlarge details</p>
     <div class="portfolio-grid">
         <div class="project-item" onclick="openFullMap(this)"><img src="https://i.postimg.cc/7YqPzc2S/airports-map.png" alt="Aviation Map"></div>
         <div class="project-item" onclick="openFullMap(this)"><img src="https://i.postimg.cc/9MCvD3Dn/Kenya-geology-map.png" alt="Geology Map"></div>
@@ -197,21 +214,23 @@
             <a href="tel:+254703860225" class="contact-item"><i class="fas fa-phone-alt"></i> +254 703 860 225</a>
             <a href="mailto:joseph.mwikwabe48@gmail.com" class="contact-item"><i class="fas fa-envelope"></i> joseph.mwikwabe48@gmail.com</a>
             <div class="contact-item"><i class="fas fa-map-marker-alt"></i> Nairobi, Kenya</div>
+            
             <div class="hours-box">
                 <h4><i class="fas fa-clock"></i> Office Hours</h4>
-                <p>Mon - Fri: 8:00 AM – 5:00 PM</p>
-                <p>Saturday: 8:00 AM – 12:00 PM</p>
+                <p><strong>Mon - Fri:</strong> 8:00 AM – 5:00 PM</p>
+                <p><strong>Saturday:</strong> 8:00 AM – 12:00 PM</p>
             </div>
+            
             <div class="map-frame">
                 <iframe width="100%" height="100%" frameborder="0" src="https://www.openstreetmap.org/export/embed.html?bbox=36.75%2C-1.35%2C36.95%2C-1.20&amp;layer=mapnik"></iframe>
             </div>
         </div>
-        <div style="background: var(--bg-silver); padding: 30px; border-radius: 8px;">
+        <div style="background: var(--bg-silver); padding: 30px; border-radius: 12px;">
             <h3 style="margin-bottom: 20px; color: var(--primary);">Inquiry Form</h3>
             <form>
                 <input type="text" placeholder="Full Name" required>
                 <input type="email" placeholder="Email Address" required>
-                <textarea rows="5" placeholder="Project details..." required></textarea>
+                <textarea rows="6" placeholder="Project details and requirements..." required></textarea>
                 <button type="submit" class="btn btn-dark">Send Message</button>
             </form>
         </div>
@@ -219,17 +238,15 @@
 </section>
 
 <footer>
-    <p>© 2026 EarthWatch Consulting. Reliable data, sustainable future.</p>
+    <p>© 2026 EarthWatch Consulting. Precise data, sustainable future.</p>
 </footer>
 
 <script>
-    // Navigation Toggle
     const menuToggle = document.getElementById('mobile-menu');
     const navLinks = document.getElementById('nav-links');
     menuToggle.addEventListener('click', () => navLinks.classList.toggle('active'));
     document.querySelectorAll('nav a').forEach(link => link.addEventListener('click', () => navLinks.classList.remove('active')));
 
-    // Zoom Function (Lightbox)
     function openFullMap(element) {
         const src = element.querySelector('img').src;
         document.getElementById('full-img').src = src;

@@ -76,7 +76,7 @@
         .stat-item h3 { font-size: 2rem; color: var(--primary); font-weight: 800; }
         .stat-item p { color: var(--accent); font-weight: 700; text-transform: uppercase; font-size: 0.75rem; }
 
-        /* Portfolio */
+        /* Portfolio Grid */
         .portfolio-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px; }
         .project-item { position: relative; overflow: hidden; border-radius: 8px; border: 1px solid #ddd; background: #eee; }
         .project-item img { width: 100%; height: 240px; object-fit: cover; cursor: pointer; transition: transform 0.4s ease; display: block; }
@@ -91,7 +91,7 @@
         #lightbox img { max-width: 90%; max-height: 85vh; border: 3px solid white; border-radius: 4px; }
         .close-btn { position: absolute; top: 20px; right: 30px; color: white; font-size: 40px; cursor: pointer; }
 
-        /* Contact & Map */
+        /* Contact & Map Styles */
         .contact-item { display: flex; align-items: center; gap: 12px; margin-bottom: 15px; text-decoration: none; color: inherit; font-size: 0.95rem; }
         .contact-item i { color: var(--accent); width: 20px; text-align: center; }
         .hours-box { background: #fff; padding: 20px; border-radius: 8px; border-left: 4px solid var(--accent); margin-bottom: 25px; box-shadow: 0 2px 10px rgba(0,0,0,0.03); }
@@ -116,8 +116,9 @@
             text-decoration: none;
         }
 
+        /* Footer & Socials */
         footer { background: var(--primary); color: white; padding: 60px 40px; text-align: center; font-size: 0.85rem; }
-        .social-links { margin-bottom: 20px; display: flex; justify-content: center; gap: 25px; }
+        .social-links { margin-bottom: 25px; display: flex; justify-content: center; gap: 25px; }
         .social-links a { color: white; font-size: 1.8rem; transition: 0.3s; }
         .social-links a:hover { color: var(--accent); transform: translateY(-3px); }
     </style>
@@ -158,15 +159,15 @@
 <section id="projects" class="section">
     <h2 style="text-align: center; color: var(--primary); margin-bottom: 40px;">Work Portfolio</h2>
     <div class="portfolio-grid">
-        <div class="project-item" onclick="openFullMap(this)"><img src="https://i.postimg.cc/QNvWLCVw/afforest-deforst-map.jpg" alt="Kericho County Afforestation/Deforestation 1995-2020"></div>
-        <div class="project-item" onclick="openFullMap(this)"><img src="https://i.postimg.cc/5NvQfJCy/lulc2025.jpg" alt="Hombe Forest Land Use 2025"></div>
-        <div class="project-item" onclick="openFullMap(this)"><img src="https://i.postimg.cc/CKRvKdHv/Degraded-Area.jpg" alt="Hombe Forest Degraded Areas"></div>
-        <div class="project-item" onclick="openFullMap(this)"><img src="https://i.postimg.cc/Wz1TDMWV/lulc.jpg" alt="General Land Use Cover Map"></div>
-        <div class="project-item" onclick="openFullMap(this)"><img src="https://i.postimg.cc/pTDJ9j9y/NORTHERN-REGION-OF-KENYA-CONTESTED-BOUNDARIES-MAP.jpg" alt="Northern Kenya Boundary Conflict"></div>
+        <div class="project-item" onclick="openFullMap(this)"><img src="https://i.postimg.cc/QNvWLCVw/afforest-deforst-map.jpg" alt="Kericho County 1995-2020 Map"></div>
+        <div class="project-item" onclick="openFullMap(this)"><img src="https://i.postimg.cc/5NvQfJCy/lulc2025.jpg" alt="Hombe Forest 2025 Map"></div>
+        <div class="project-item" onclick="openFullMap(this)"><img src="https://i.postimg.cc/CKRvKdHv/Degraded-Area.jpg" alt="Degraded Area Analysis"></div>
+        <div class="project-item" onclick="openFullMap(this)"><img src="https://i.postimg.cc/Wz1TDMWV/lulc.jpg" alt="Land Use Cover Map"></div>
+        <div class="project-item" onclick="openFullMap(this)"><img src="https://i.postimg.cc/pTDJ9j9y/NORTHERN-REGION-OF-KENYA-CONTESTED-BOUNDARIES-MAP.jpg" alt="Northern Kenya Boundaries"></div>
         <div class="project-item" onclick="openFullMap(this)"><img src="https://i.postimg.cc/7YqPzc2S/airports-map.png" alt="Aviation Mapping"></div>
-        <div class="project-item" onclick="openFullMap(this)"><img src="https://i.postimg.cc/9MCvD3Dn/Kenya-geology-map.png" alt="Kenya Geology Map"></div>
-        <div class="project-item" onclick="openFullMap(this)"><img src="https://i.postimg.cc/zf98b0sT/Solar-Panels-Suitability-Mapping.png" alt="Solar Suitability Analysis"></div>
-        <div class="project-item" onclick="openFullMap(this)"><img src="https://i.postimg.cc/hGG4PY7H/Whats-App-Image-2025-12-18-at-16-28-29.jpg" alt="Hydrology & Terrain Model"></div>
+        <div class="project-item" onclick="openFullMap(this)"><img src="https://i.postimg.cc/9MCvD3Dn/Kenya-geology-map.png" alt="Kenya Geology"></div>
+        <div class="project-item" onclick="openFullMap(this)"><img src="https://i.postimg.cc/zf98b0sT/Solar-Panels-Suitability-Mapping.png" alt="Solar Suitability"></div>
+        <div class="project-item" onclick="openFullMap(this)"><img src="https://i.postimg.cc/hGG4PY7H/Whats-App-Image-2025-12-18-at-16-28-29.jpg" alt="Hydrological Modeling"></div>
     </div>
 </section>
 
@@ -181,7 +182,7 @@
             <h2 style="color: var(--primary); margin-bottom: 20px;">Connect with us</h2>
             <a href="tel:+254703860225" class="contact-item"><i class="fas fa-phone-alt"></i> +254 703 860 225</a>
             <a href="mailto:joseph.mwikwabe48@gmail.com" class="contact-item"><i class="fas fa-envelope"></i> joseph.mwikwabe48@gmail.com</a>
-            <div class="contact-item"><i class="fas fa-map-marker-alt"></i> Nairobi, Kenya</div>
+            <div class="contact-item"><i class="fas fa-map-marker-alt"></i> Kilimani, Nairobi, Kenya</div>
             
             <div class="hours-box">
                 <h4><i class="fas fa-clock"></i> Office Hours</h4>
@@ -190,7 +191,7 @@
             </div>
             
             <div class="map-frame">
-                <iframe width="100%" height="100%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://www.openstreetmap.org/export/embed.html?bbox=36.7865%2C-1.3142%2C36.8531%2C-1.2655&amp;layer=mapnik&amp;marker=-1.28638%2C36.82194"></iframe>
+                <iframe width="100%" height="100%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://www.openstreetmap.org/export/embed.html?bbox=36.7569%2C-1.3092%2C36.8169%2C-1.2692&amp;layer=mapnik&amp;marker=-1.28927%2C36.78693"></iframe>
             </div>
         </div>
         
@@ -199,7 +200,7 @@
             <form id="contact-form">
                 <input type="text" name="Full Name" placeholder="Full Name" required>
                 <input type="email" name="Email" placeholder="Email Address" required>
-                <textarea name="Project Details" rows="6" placeholder="Project details..." required></textarea>
+                <textarea name="Project Details" rows="6" placeholder="Tell us about your project..." required></textarea>
                 <button type="submit" id="submit-button" class="btn btn-dark">Send Message</button>
             </form>
         </div>
@@ -208,8 +209,8 @@
 
 <footer>
     <div class="social-links">
-        <a href="https://web.facebook.com/joseph.mwikwabe.12/" target="Facebook" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
-        <a href="https://www.linkedin.com/in/joseph-mwikwabe" target="LinkedIn" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+        <a href="https://www.facebook.com/your-business-page" target="_blank" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+        <a href="https://www.linkedin.com/in/joseph-mwikwabe" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
         <a href="https://wa.me/254703860225" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
         <a href="mailto:joseph.mwikwabe48@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
     </div>
@@ -237,13 +238,13 @@
         btn.innerHTML = "Sending...";
         fetch(scriptURL, { method: 'POST', body: new FormData(form), mode: 'no-cors' })
         .then(() => {
-            alert("Success! Your message has been sent to EarthWatch.");
+            alert("Inquiry Sent Successfully!");
             btn.disabled = false;
             btn.innerHTML = "Send Message";
             form.reset();
         })
         .catch(() => {
-            alert("Error sending message. Please use WhatsApp.");
+            alert("Error sending. Please reach out via WhatsApp.");
             btn.disabled = false;
         });
     });

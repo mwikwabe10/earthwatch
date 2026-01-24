@@ -55,11 +55,11 @@
         }
 
         .section { padding: 80px 5%; }
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 25px; }
 
-        /* Restored About Styles */
-        .about-content { max-width: 800px; margin: 0 auto; text-align: center; }
-        .about-content p { font-size: 1.15rem; color: var(--text-light); margin-bottom: 25px; }
+        /* Step-by-Step Approach Styles */
+        .step-card { padding: 30px; background: var(--white); border-radius: 8px; border-left: 4px solid var(--accent); position: relative; }
+        .step-number { font-size: 3rem; font-weight: 800; color: rgba(197, 160, 89, 0.1); position: absolute; top: 10px; right: 20px; }
 
         .service-card { padding: 40px 30px; border: 1px solid #eee; border-radius: 12px; background: white; text-align: center; transition: 0.3s; }
         .service-card:hover { transform: translateY(-10px); border-color: var(--accent); }
@@ -91,7 +91,6 @@
             #home { text-align: left; padding: 160px 15%; }
             .section { padding-inline: 15%; }
             .contact-flex { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; }
-            .about-content { text-align: left; margin: 0; }
         }
     </style>
 </head>
@@ -111,6 +110,7 @@
     <nav id="nav-links">
         <a href="#home">Home</a>
         <a href="#about">About</a>
+        <a href="#approach">Approach</a>
         <a href="#services">Services</a>
         <a href="#projects">Portfolio</a>
         <a href="#contact">Contact</a>
@@ -118,52 +118,78 @@
 </header>
 
 <section id="home">
-    <h2 style="font-size: clamp(2rem, 5vw, 3.5rem); margin-bottom: 20px;">Spatial Intelligence for a Sustainable Future</h2>
-    <p style="max-width: 600px; margin-bottom: 30px; font-size: 1.1rem;">Expert GIS mapping and environmental assessments in Nairobi and beyond.</p>
-    <a href="#contact" class="btn" style="background: var(--accent); color: var(--primary); padding: 12px 30px; text-decoration: none; font-weight: 700; border-radius: 4px;">Start a project</a>
+    <h2 style="font-size: clamp(2rem, 5vw, 3.5rem); margin-bottom: 20px;">Precision Mapping for a Sustainable Planet</h2>
+    <p style="max-width: 600px; margin-bottom: 30px; font-size: 1.1rem;">Nairobi's leading experts in geospatial intelligence and environmental compliance.</p>
+    <a href="#contact" class="btn" style="background: var(--accent); color: var(--primary); padding: 12px 30px; text-decoration: none; font-weight: 700; border-radius: 4px;">Request a Quote</a>
 </section>
 
 <section id="about" class="section">
-    <div class="about-content">
+    <div style="max-width: 800px;">
         <h2 style="color: var(--primary); margin-bottom: 25px;">About EarthWatch</h2>
-        <p>EarthWatch Consulting is a premier geospatial and environmental firm based in Nairobi. We specialize in transforming complex spatial data into actionable insights for engineering, urban planning, and environmental conservation.</p>
-        <p>Our team combines advanced Remote Sensing technology with NEMA-certified environmental auditing to ensure your projects are not only technically precise but also sustainable and compliant with international standards.</p>
+        <p style="font-size: 1.15rem; color: var(--text-light); margin-bottom: 20px;">Based in Nairobi, EarthWatch Consulting bridges the gap between raw data and environmental action. We specialize in converting complex spatial information into strategic plans for infrastructure and conservation.</p>
+        <p style="font-size: 1.15rem; color: var(--text-light);">We are driven by accuracy, leveraging state-of-the-art Remote Sensing and GIS technologies to support NEMA-standard assessments across East Africa.</p>
     </div>
 </section>
 
-<section id="services" class="section" style="background: var(--bg-silver);">
-    <h2 style="text-align: center; color: var(--primary); margin-bottom: 40px;">Our Core Services</h2>
+<section id="approach" class="section" style="background: var(--bg-silver);">
+    <h2 style="text-align: center; color: var(--primary); margin-bottom: 45px;">Our Approach</h2>
+    <div class="grid">
+        <div class="step-card">
+            <span class="step-number">01</span>
+            <h3>Data Acquisition</h3>
+            <p>We source high-resolution satellite imagery and field data tailored to your project's geography.</p>
+        </div>
+        <div class="step-card">
+            <span class="step-number">02</span>
+            <h3>Spatial Analysis</h3>
+            <p>Using advanced GIS algorithms, we process raw data to identify patterns, risks, and opportunities.</p>
+        </div>
+        <div class="step-card">
+            <span class="step-number">03</span>
+            <h3>Impact Strategy</h3>
+            <p>Our environmental experts craft strategies that ensure compliance with NEMA and IFC standards.</p>
+        </div>
+        <div class="step-card">
+            <span class="step-number">04</span>
+            <h3>Delivery</h3>
+            <p>We provide interactive maps and comprehensive reports that guide sustainable decision-making.</p>
+        </div>
+    </div>
+</section>
+
+<section id="services" class="section">
+    <h2 style="text-align: center; color: var(--primary); margin-bottom: 40px;">Core Services</h2>
     <div class="grid">
         <div class="service-card">
             <i class="fas fa-satellite"></i>
             <h3>Remote Sensing</h3>
-            <p>High-resolution satellite imagery analysis for monitoring land use changes and vegetation health.</p>
+            <p>Monitoring land use changes and vegetation health via satellite.</p>
         </div>
         <div class="service-card">
             <i class="fas fa-map-marked-alt"></i>
             <h3>GIS Mapping</h3>
-            <p>Developing custom interactive maps and spatial databases for urban planning and resource management.</p>
+            <p>Interactive spatial databases for urban planning and resource management.</p>
         </div>
         <div class="service-card">
             <i class="fas fa-microscope"></i>
             <h3>ESIAs & Audits</h3>
-            <p>NEMA-compliant Environmental & Social Impact Assessments and annual safety audits for infrastructure.</p>
+            <p>Standard NEMA assessments and infrastructure safety audits.</p>
         </div>
     </div>
 </section>
 
-<section id="projects" class="section">
+<section id="projects" class="section" style="background: var(--bg-silver);">
     <h2 style="text-align: center; color: var(--primary); margin-bottom: 40px;">Work Portfolio</h2>
     <div class="portfolio-grid">
-        <div class="project-item" onclick="openFullMap(this)"><img src="https://i.postimg.cc/QNvWLCVw/afforest-deforst-map.jpg" alt="Afforestation Map" loading="lazy"></div>
-        <div class="project-item" onclick="openFullMap(this)"><img src="https://i.postimg.cc/5NvQfJCy/lulc2025.jpg" alt="Land Use 2025" loading="lazy"></div>
-        <div class="project-item" onclick="openFullMap(this)"><img src="https://i.postimg.cc/CKRvKdHv/Degraded-Area.jpg" alt="Degraded Areas" loading="lazy"></div>
-        <div class="project-item" onclick="openFullMap(this)"><img src="https://i.postimg.cc/Wz1TDMWV/lulc.jpg" alt="LULC Map" loading="lazy"></div>
-        <div class="project-item" onclick="openFullMap(this)"><img src="https://i.postimg.cc/pTDJ9j9y/NORTHERN-REGION-OF-KENYA-CONTESTED-BOUNDARIES-MAP.jpg" alt="Northern Kenya" loading="lazy"></div>
-        <div class="project-item" onclick="openFullMap(this)"><img src="https://i.postimg.cc/7YqPzc2S/airports-map.png" alt="Aviation Map" loading="lazy"></div>
-        <div class="project-item" onclick="openFullMap(this)"><img src="https://i.postimg.cc/9MCvD3Dn/Kenya-geology-map.png" alt="Geology Map" loading="lazy"></div>
-        <div class="project-item" onclick="openFullMap(this)"><img src="https://i.postimg.cc/zf98b0sT/Solar-Panels-Suitability-Mapping.png" alt="Solar Suitability" loading="lazy"></div>
-        <div class="project-item" onclick="openFullMap(this)"><img src="https://i.postimg.cc/hGG4PY7H/Whats-App-Image-2025-12-18-at-16-28-29.jpg" alt="Hydrology Model" loading="lazy"></div>
+        <div class="project-item" onclick="openFullMap(this)"><img src="https://i.postimg.cc/QNvWLCVw/afforest-deforst-map.jpg" alt="Afforestation" loading="lazy"></div>
+        <div class="project-item" onclick="openFullMap(this)"><img src="https://i.postimg.cc/5NvQfJCy/lulc2025.jpg" alt="LULC 2025" loading="lazy"></div>
+        <div class="project-item" onclick="openFullMap(this)"><img src="https://i.postimg.cc/CKRvKdHv/Degraded-Area.jpg" alt="Degraded Area" loading="lazy"></div>
+        <div class="project-item" onclick="openFullMap(this)"><img src="https://i.postimg.cc/Wz1TDMWV/lulc.jpg" alt="Cover Map" loading="lazy"></div>
+        <div class="project-item" onclick="openFullMap(this)"><img src="https://i.postimg.cc/pTDJ9j9y/NORTHERN-REGION-OF-KENYA-CONTESTED-BOUNDARIES-MAP.jpg" alt="Boundaries" loading="lazy"></div>
+        <div class="project-item" onclick="openFullMap(this)"><img src="https://i.postimg.cc/7YqPzc2S/airports-map.png" alt="Aviation" loading="lazy"></div>
+        <div class="project-item" onclick="openFullMap(this)"><img src="https://i.postimg.cc/9MCvD3Dn/Kenya-geology-map.png" alt="Geology" loading="lazy"></div>
+        <div class="project-item" onclick="openFullMap(this)"><img src="https://i.postimg.cc/zf98b0sT/Solar-Panels-Suitability-Mapping.png" alt="Solar" loading="lazy"></div>
+        <div class="project-item" onclick="openFullMap(this)"><img src="https://i.postimg.cc/hGG4PY7H/Whats-App-Image-2025-12-18-at-16-28-29.jpg" alt="Hydrology" loading="lazy"></div>
     </div>
 </section>
 
@@ -178,18 +204,16 @@
             <div class="contact-item"><i class="fas fa-phone-alt"></i> +254 703 860 225</div>
             <div class="contact-item"><i class="fas fa-envelope"></i> joseph.mwikwabe48@gmail.com</div>
             <div class="contact-item"><i class="fas fa-map-marker-alt"></i> Nairobi, Kenya</div>
-            
             <div class="map-frame">
                 <iframe width="100%" height="100%" frameborder="0" src="https://www.openstreetmap.org/export/embed.html?bbox=36.7569%2C-1.3092%2C36.8169%2C-1.2692&amp;layer=mapnik&amp;marker=-1.28927%2C36.78693"></iframe>
             </div>
         </div>
-        
         <div style="background: var(--bg-silver); padding: 30px; border-radius: 12px;">
             <h3 style="margin-bottom: 20px;">Inquiry Form</h3>
             <form id="contact-form">
                 <input type="text" name="Name" placeholder="Full Name" required style="width:100%; padding:12px; margin-bottom:15px; border:1px solid #ddd;">
                 <input type="email" name="Email" placeholder="Email Address" required style="width:100%; padding:12px; margin-bottom:15px; border:1px solid #ddd;">
-                <textarea name="Project" rows="6" placeholder="Tell us about your project..." required style="width:100%; padding:12px; margin-bottom:15px; border:1px solid #ddd;"></textarea>
+                <textarea name="Project" rows="6" placeholder="Project details..." required style="width:100%; padding:12px; margin-bottom:15px; border:1px solid #ddd;"></textarea>
                 <button type="submit" id="submit-button" style="width:100%; background: var(--primary); color: white; padding: 12px; border: none; cursor: pointer; font-weight: 700;">Send Message</button>
             </form>
         </div>
@@ -198,8 +222,8 @@
 
 <footer>
     <div class="social-links">
-        <a href="https://www.facebook.com/your-business-page" target="_blank"><i class="fab fa-facebook"></i></a>
-        <a href="https://www.linkedin.com/company/101521419/" target="_blank"><i class="fab fa-linkedin"></i></a>
+        <a href="https://www.facebook.com/your-business-page" target="Facebook"><i class="fab fa-facebook"></i></a>
+        <a href="https://www.linkedin.com/company/101521419/" target="LinkedIn"><i class="fab fa-linkedin"></i></a>
         <a href="https://wa.me/254703860225" target="_blank"><i class="fab fa-whatsapp"></i></a>
         <a href="mailto:joseph.mwikwabe48@gmail.com"><i class="fas fa-envelope"></i></a>
     </div>
@@ -226,13 +250,13 @@
         btn.innerHTML = "Sending...";
         fetch(scriptURL, { method: 'POST', body: new FormData(form), mode: 'no-cors' })
         .then(() => {
-            alert("Success! Inquiry sent.");
+            alert("Inquiry sent successfully!");
             btn.disabled = false;
             btn.innerHTML = "Send Message";
             form.reset();
         })
         .catch(() => {
-            alert("Error sending message.");
+            alert("Connection error. Please use WhatsApp.");
             btn.disabled = false;
         });
     });

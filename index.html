@@ -106,7 +106,7 @@
         .contact-item { display: flex; align-items: center; gap: 12px; margin-bottom: 15px; text-decoration: none; color: inherit; font-size: 0.95rem; }
         .contact-item i { color: var(--accent); width: 20px; text-align: center; }
         .hours-box { background: #fff; padding: 20px; border-radius: 8px; border-left: 4px solid var(--accent); margin-bottom: 25px; box-shadow: 0 2px 10px rgba(0,0,0,0.03); }
-        .map-frame { border-radius: 8px; overflow: hidden; height: 280px; margin-top: 15px; border: 1px solid #ddd; }
+        .map-frame { border-radius: 8px; overflow: hidden; height: 350px; margin-top: 15px; border: 1px solid #ddd; }
         
         input, textarea { width: 100%; padding: 12px; margin-bottom: 15px; border: 1px solid #ddd; border-radius: 4px; font-family: inherit; }
         .btn { background: var(--accent); color: var(--primary); padding: 12px 30px; border: none; border-radius: 4px; font-weight: 700; cursor: pointer; text-decoration: none; display: inline-block; }
@@ -127,7 +127,10 @@
             text-decoration: none;
         }
 
-        footer { background: var(--primary); color: white; padding: 40px; text-align: center; font-size: 0.85rem; }
+        footer { background: var(--primary); color: white; padding: 60px 40px; text-align: center; font-size: 0.85rem; }
+        .social-links { margin-bottom: 20px; display: flex; justify-content: center; gap: 20px; }
+        .social-links a { color: white; font-size: 1.5rem; transition: 0.3s; }
+        .social-links a:hover { color: var(--accent); }
     </style>
 </head>
 <body>
@@ -186,33 +189,17 @@
         <div class="project-item" onclick="openFullMap(this)"><img src="https://i.postimg.cc/QNvWLCVw/afforest-deforst-map.jpg" alt="Kericho Afforestation/Deforestation 1995-2020"></div>
         <div class="project-item" onclick="openFullMap(this)"><img src="https://i.postimg.cc/5NvQfJCy/lulc2025.jpg" alt="Hombe Forest Land Use 2025"></div>
         <div class="project-item" onclick="openFullMap(this)"><img src="https://i.postimg.cc/CKRvKdHv/Degraded-Area.jpg" alt="Hombe Forest Degradation Map"></div>
-        
         <div class="project-item" onclick="openFullMap(this)"><img src="https://i.postimg.cc/Wz1TDMWV/lulc.jpg" alt="Land Use Land Cover Map"></div>
         <div class="project-item" onclick="openFullMap(this)"><img src="https://i.postimg.cc/pTDJ9j9y/NORTHERN-REGION-OF-KENYA-CONTESTED-BOUNDARIES-MAP.jpg" alt="Northern Kenya Boundary Conflict"></div>
         <div class="project-item" onclick="openFullMap(this)"><img src="https://i.postimg.cc/7YqPzc2S/airports-map.png" alt="Aviation Map"></div>
-        
         <div class="project-item" onclick="openFullMap(this)"><img src="https://i.postimg.cc/9MCvD3Dn/Kenya-geology-map.png" alt="Geology Map"></div>
         <div class="project-item" onclick="openFullMap(this)"><img src="https://i.postimg.cc/zf98b0sT/Solar-Panels-Suitability-Mapping.png" alt="Solar Suitability"></div>
         <div class="project-item" onclick="openFullMap(this)"><img src="https://i.postimg.cc/hGG4PY7H/Whats-App-Image-2025-12-18-at-16-28-29.jpg" alt="Hydrology Model"></div>
     </div>
 </section>
 
-<section id="testimonials" class="section" style="background: var(--bg-silver);">
-    <h2 style="text-align: center; color: var(--primary); margin-bottom: 40px;">What Our Clients Say</h2>
-    <div class="testimonial-grid">
-        <div class="testimonial-card">
-            <p>"EarthWatch provided exceptionally accurate mapping data for our regional infrastructure project. Their technical expertise is unmatched."</p>
-            <h4>— Senior Engineer, Regional Dev.</h4>
-        </div>
-        <div class="testimonial-card">
-            <p>"The ESIA process was seamless and professional. They translated complex environmental data into clear, actionable reports."</p>
-            <h4>— Environmental Coordinator</h4>
-        </div>
-    </div>
-</section>
-
 <div id="lightbox" onclick="this.style.display='none'">
-    <span class="close-btn">&times;</span>
+    <span class="close-btn">×</span>
     <img id="full-img" src="">
 </div>
 
@@ -228,25 +215,37 @@
                 <p><strong>Mon - Fri:</strong> 8:00 AM – 5:00 PM</p>
                 <p><strong>Sat:</strong> 8:00 AM – 12:00 PM</p>
             </div>
+            
             <div class="map-frame">
-                <iframe width="100%" height="100%" frameborder="0" src="https://www.openstreetmap.org/export/embed.html?bbox=36.75%2C-1.35%2C36.95%2C-1.20&amp;layer=mapnik"></iframe>
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m13!1d127640.7513511855!2d36.75806655740685!3d-1.3032049615555135!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f1172d84d49a7%3A0xf7cf0254b297924c!2sNairobi%2C%20Kenya!5e0!3m2!1sen!2s!4v1700000000000!5m2!1sen!2s" 
+                    width="100%" 
+                    height="100%" 
+                    style="border:0;" 
+                    allowfullscreen="" 
+                    loading="lazy" 
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
             </div>
         </div>
         <div style="background: var(--bg-silver); padding: 30px; border-radius: 12px;">
             <h3 style="margin-bottom: 20px; color: var(--primary);">Inquiry Form</h3>
-            
             <form id="contact-form">
                 <input type="text" name="Full Name" placeholder="Full Name" required>
                 <input type="email" name="Email" placeholder="Email Address" required>
                 <textarea name="Project Details" rows="6" placeholder="Project details..." required></textarea>
                 <button type="submit" id="submit-button" class="btn btn-dark">Send Message</button>
             </form>
-            
         </div>
     </div>
 </section>
 
 <footer>
+    <div class="social-links">
+        <a href="https://www.linkedin.com/in/john-mwikwabe-3b830a131/" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+        <a href="mailto:joseph.mwikwabe48@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+        <a href="https://wa.me/254703860225" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+    </div>
     <p>© 2026 EarthWatch Consulting. Precise data, sustainable future.</p>
 </footer>
 
